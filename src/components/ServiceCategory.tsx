@@ -37,6 +37,7 @@ export const ServiceCategory = ({
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
         className="w-full px-6 py-5 flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-dark-surface transition-colors hover:bg-dark-surface/50"
       >
         <div className="flex items-center space-x-4">
@@ -72,7 +73,7 @@ export const ServiceCategory = ({
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden"
           >
-            <div className="px-6 py-4 border-t border-dark-border">
+            <div className="px-6 py-6 border-t border-dark-border">
               {children}
             </div>
           </motion.div>

@@ -784,7 +784,7 @@ export const Services = () => {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, margin: '-100px' }}
-            className="space-y-6"
+            className="space-y-8"
           >
             {serviceCategories.map((category, catIndex) => {
               // Generate URL-friendly ID from category name

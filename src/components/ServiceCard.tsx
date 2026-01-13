@@ -31,19 +31,18 @@ export const ServiceCard = ({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 60, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ 
-        duration: 0.7, 
-        delay: index * 0.08,
+        duration: 0.5, 
+        delay: index * 0.05,
         ease: [0.16, 1, 0.3, 1],
-        scale: { duration: 0.5 }
       }}
       onHoverStart={() => !isMobile && setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       onTap={() => isMobile && setIsHovered(!isHovered)}
-      className="relative group"
+      className="relative"
     >
       {category && (
         <div className="absolute top-4 right-4">
@@ -55,14 +54,10 @@ export const ServiceCard = ({
       <motion.div
         className="bg-dark-elevated rounded-2xl shadow-xl p-8 h-full transition-all duration-300 border border-dark-border hover:border-accent-cyan/50 relative overflow-hidden group"
         whileHover={!isMobile ? { 
-          y: -8, 
-          scale: 1.02,
+          y: -4,
           transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
         } : {}}
-        whileTap={{ scale: 0.96 }}
-        style={{
-          transformStyle: 'preserve-3d',
-        }}
+        whileTap={{ scale: 0.98 }}
       >
         {/* Magnetic hover effect background */}
         <motion.div
