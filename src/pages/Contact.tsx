@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { InteractiveButton } from '../components/InteractiveButton';
 import { fadeInUp, staggerContainer } from '../utils/animations';
+import { FormField } from '../components/FormField';
 
 interface ContactFormData {
   name: string;
@@ -84,78 +85,49 @@ export const Contact = () => {
             >
               <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-6">Send us a message</h2>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    Name <span className="text-red-400">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    {...register('name', { required: 'Name is required' })}
-                    className={`w-full px-4 py-3 bg-dark-elevated border rounded-lg focus:ring-2 focus:ring-accent-cyan focus:border-accent-cyan transition-all text-white placeholder-gray-500 ${
-                      errors.name ? 'border-red-400' : 'border-dark-border'
-                    }`}
-                    placeholder="Your name"
-                  />
-                  {errors.name && (
-                    <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
-                  )}
-                </div>
+                <FormField
+                  id="name"
+                  label="Name"
+                  type="text"
+                  placeholder="Your name"
+                  {...register('name', { required: 'Name is required' })}
+                  error={errors.name?.message}
+                />
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    Email <span className="text-red-400">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    {...register('email', {
-                      required: 'Email is required',
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: 'Invalid email address',
-                      },
-                    })}
-                    className={`w-full px-4 py-3 bg-dark-elevated border rounded-lg focus:ring-2 focus:ring-accent-cyan focus:border-accent-cyan transition-all text-white placeholder-gray-500 focus:outline-none ${
-                      errors.email ? 'border-red-400' : 'border-dark-border'
-                    }`}
-                    placeholder="your.email@example.com"
-                  />
-                  {errors.email && (
-                    <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
-                  )}
-                </div>
+                <FormField
+                  id="email"
+                  label="Email"
+                  type="email"
+                  placeholder="your.email@example.com"
+                  {...register('email', {
+                    required: 'Email is required',
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: 'Invalid email address',
+                    },
+                  })}
+                  error={errors.email?.message}
+                />
 
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
-                    Company
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    {...register('company')}
-                    className="w-full px-4 py-3 bg-dark-elevated border border-dark-border rounded-lg focus:ring-2 focus:ring-accent-cyan focus:border-accent-cyan transition-all text-white placeholder-gray-500 focus:outline-none"
-                    placeholder="Your company name"
-                  />
-                </div>
+                <FormField
+                  id="company"
+                  label="Company"
+                  type="text"
+                  placeholder="Your company name"
+                  {...register('company')}
+                />
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Message <span className="text-red-400">*</span>
-                  </label>
-                  <textarea
-                    id="message"
-                    {...register('message', { required: 'Message is required' })}
-                    rows={6}
-                    className={`w-full px-4 py-3 bg-dark-elevated border rounded-lg focus:ring-2 focus:ring-accent-cyan focus:border-accent-cyan transition-all resize-none text-white placeholder-gray-500 focus:outline-none ${
-                      errors.message ? 'border-red-400' : 'border-dark-border'
-                    }`}
-                    placeholder="Tell us about your project..."
-                  />
-                  {errors.message && (
-                    <p className="mt-1 text-sm text-red-400">{errors.message.message}</p>
-                  )}
-                </div>
+                <FormField
+                  id="message"
+                  label="Message"
+                  isTextarea={true}
+                  textareaProps={{
+                    rows: 6,
+                    placeholder: 'Tell us about your project...',
+                    ...register('message', { required: 'Message is required' }),
+                  }}
+                  error={errors.message?.message}
+                />
 
                 {submitStatus === 'success' && (
                   <motion.div

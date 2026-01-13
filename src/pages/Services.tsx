@@ -79,7 +79,7 @@ export const Services = () => {
           >
             {services.map((service, index) => (
               <ServiceCard
-                key={index}
+                key={service.title}
                 title={service.title}
                 description={service.description}
                 index={index}

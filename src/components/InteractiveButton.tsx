@@ -47,8 +47,8 @@ export const InteractiveButton = ({
         transition: { duration: 0.2, ease: [0.16, 1, 0.3, 1] }
       }}
       whileTap={{ 
-        scale: disabled || isLoading ? 1 : 0.95,
-        transition: { duration: 0.15 }
+        scale: disabled || isLoading ? 1 : 0.92,
+        transition: { duration: 0.15, ease: [0.16, 1, 0.3, 1] }
       }}
     >
       {isLoading ? (

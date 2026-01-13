@@ -7,6 +7,8 @@ import { ScrollReveal } from '../components/ScrollReveal';
 import { InteractiveButton } from '../components/InteractiveButton';
 import { TestimonialCard } from '../components/TestimonialCard';
 import { fadeInUp, staggerContainer } from '../utils/animations';
+import { KineticText } from '../components/KineticText';
+import { ScrollSection } from '../components/ScrollSection';
 
 const featuredServices = [
   {
@@ -126,9 +128,11 @@ export const Home = () => {
       <section className="py-20 bg-dark-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-white mb-12 leading-tight">
-              Why Choose Pacebyte?
-            </h2>
+            <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-white mb-12 leading-tight">
+              <KineticText intensity={0.2} enableCursor={true}>
+                Why Choose Pacebyte?
+              </KineticText>
+            </div>
           </ScrollReveal>
 
           <motion.div
@@ -163,9 +167,11 @@ export const Home = () => {
         <div className="absolute inset-0 bg-gradient-mesh opacity-20" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-white mb-12 leading-tight">
-              Our Services
-            </h2>
+            <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-white mb-12 leading-tight">
+              <KineticText intensity={0.2} enableCursor={true}>
+                Our Services
+              </KineticText>
+            </div>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -200,9 +206,11 @@ export const Home = () => {
       <section className="py-20 bg-dark-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-white mb-12 leading-tight">
-              Testimonials
-            </h2>
+            <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-white mb-12 leading-tight">
+              <KineticText intensity={0.2} enableCursor={true}>
+                Testimonials
+              </KineticText>
+            </div>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -224,16 +232,18 @@ export const Home = () => {
       <section className="py-20 bg-gradient-to-r from-accent-cyan/20 via-accent-purple/20 to-accent-green/20 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh-strong opacity-40" />
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <ScrollReveal direction="up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
-              Ready to Accelerate Your Digital Future?
-            </h2>
+          <ScrollSection parallax={true} parallaxSpeed={0.2}>
+            <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
+              <KineticText intensity={0.2} enableCursor={true}>
+                Ready to Accelerate Your Digital Future?
+              </KineticText>
+            </div>
             <Link to="/contact">
               <InteractiveButton size="lg" variant="secondary">
                 Get in Touch
               </InteractiveButton>
             </Link>
-          </ScrollReveal>
+          </ScrollSection>
         </div>
       </section>
     </div>

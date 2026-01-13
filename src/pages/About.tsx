@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { TechStackCard } from '../components/TechStackCard';
 import { fadeInUp, staggerContainer } from '../utils/animations';
+import { ScrollSection } from '../components/ScrollSection';
+import { KineticText } from '../components/KineticText';
 
 const timeline = [
   {
@@ -146,16 +148,18 @@ export const About = () => {
       <section className="py-20 bg-dark-surface relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh opacity-20" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal direction="up">
+          <ScrollSection parallax={true} parallaxSpeed={0.3}>
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 leading-tight">
-                Our Story
-              </h2>
+              <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 leading-tight">
+                <KineticText intensity={0.2} enableCursor={true}>
+                  Our Story
+                </KineticText>
+              </div>
               <p className="text-xl text-gray-200 max-w-3xl mx-auto">
                 Pushing the boundaries of what's possible in technology
               </p>
             </div>
-          </ScrollReveal>
+          </ScrollSection>
 
           <motion.div
             variants={staggerContainer}

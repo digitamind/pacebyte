@@ -174,7 +174,7 @@ export const Portfolio = () => {
 
           {filteredCaseStudies.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-gray-600 text-lg">No case studies found for this filter.</p>
+              <p className="text-gray-300 text-lg">No case studies found for this filter.</p>
             </div>
           )}
         </div>

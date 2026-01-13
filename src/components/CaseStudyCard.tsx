@@ -56,7 +56,7 @@ export const CaseStudyCard = ({
           >
             {image}
           </motion.div>
-          <div className="absolute top-4 left-4 bg-accent-cyan text-dark-base px-4 py-1.5 rounded-full text-sm font-extrabold">
+          <div className="absolute top-3 left-3 bg-accent-cyan text-dark-base px-3 py-1 rounded-full text-xs font-extrabold">
             {String(index + 1).padStart(2, '0')} / {String(6).padStart(2, '0')}
           </div>
         </div>
