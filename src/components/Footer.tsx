@@ -28,7 +28,7 @@ export const Footer = () => {
   const { scrollToTop } = useSmoothScroll();
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-dark-base border-t border-dark-border text-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <motion.div
@@ -37,7 +37,7 @@ export const Footer = () => {
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent mb-4">
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-accent-cyan to-accent-purple bg-clip-text text-transparent mb-4">
               Pacebyte
             </h3>
             <p className="text-sm text-gray-400">
@@ -57,7 +57,7 @@ export const Footer = () => {
                 <li key={index}>
                   <Link
                     to={link.path}
-                    className="text-sm hover:text-primary-400 transition-colors"
+                    className="text-sm hover:text-accent-cyan transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -98,7 +98,7 @@ export const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary-600 transition-colors"
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-dark-elevated hover:bg-accent-cyan transition-colors border border-dark-border"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   initial={{ opacity: 0, scale: 0 }}
@@ -116,13 +116,13 @@ export const Footer = () => {
           </motion.div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+        <div className="mt-8 pt-8 border-t border-dark-border flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-400">
             © {new Date().getFullYear()} Pacebyte. All rights reserved.
           </p>
           <motion.button
             onClick={scrollToTop}
-            className="mt-4 md:mt-0 px-4 py-2 text-sm text-gray-400 hover:text-primary-400 transition-colors flex items-center space-x-2"
+            className="mt-4 md:mt-0 px-4 py-2 text-sm text-gray-400 hover:text-accent-cyan transition-colors flex items-center space-x-2"
             whileHover={{ y: -2 }}
             whileTap={{ y: 0 }}
           >

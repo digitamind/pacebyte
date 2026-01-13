@@ -42,7 +42,7 @@ export const Navigation = () => {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-30 transition-all duration-500 ${
           isScrolled
-            ? 'bg-white/90 backdrop-blur-lg shadow-lg'
+            ? 'glass shadow-lg border-b border-dark-border'
             : 'bg-transparent'
         }`}
       >
@@ -50,7 +50,7 @@ export const Navigation = () => {
           <div className="flex items-center justify-between h-20">
             <Link to="/" className="flex items-center space-x-2">
               <motion.span
-                className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent"
+                className="text-2xl font-bold bg-gradient-to-r from-accent-cyan to-accent-purple bg-clip-text text-transparent"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
@@ -66,13 +66,17 @@ export const Navigation = () => {
                     key={link.path}
                     to={link.path}
                     onClick={() => handleNavClick(link.path)}
-                    className="relative py-2 text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors"
+                    className={`relative py-2 px-3 text-sm font-medium rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-dark-base ${
+                      isActive
+                        ? 'text-accent-cyan bg-accent-cyan/10'
+                        : 'text-gray-300 hover:text-accent-cyan hover:bg-dark-surface/50'
+                    }`}
                   >
                     {link.label}
                     {isActive && (
                       <motion.div
                         layoutId="activeTab"
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-600"
+                        className="absolute inset-0 bg-accent-cyan/10 rounded-lg -z-10"
                         initial={false}
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
@@ -84,7 +88,7 @@ export const Navigation = () => {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-gray-700 hover:text-primary-600 transition-colors"
+              className="md:hidden p-2 text-gray-300 hover:text-accent-cyan transition-colors focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-dark-base rounded"
               aria-label="Toggle menu"
             >
               <svg

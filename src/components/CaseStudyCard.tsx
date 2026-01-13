@@ -45,41 +45,41 @@ export const CaseStudyCard = ({
         scale: 1.01,
         transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
       }}
-      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow group"
+      className="bg-dark-elevated rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow group border border-dark-border"
     >
       {image && (
-        <div className="relative h-64 overflow-hidden bg-gradient-to-br from-primary-100 to-primary-200">
+        <div className="relative h-64 overflow-hidden bg-gradient-to-br from-accent-cyan/20 to-accent-purple/20">
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.4 }}
+            whileHover={{ scale: 1.08 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="w-full h-full"
           >
             {image}
           </motion.div>
-          <div className="absolute top-4 left-4 bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+          <div className="absolute top-4 left-4 bg-accent-cyan text-dark-base px-4 py-1.5 rounded-full text-sm font-extrabold">
             {String(index + 1).padStart(2, '0')} / {String(6).padStart(2, '0')}
           </div>
         </div>
       )}
 
       <div className="p-8">
-        <div className="flex flex-wrap gap-2 mb-4">
-          <span className="text-sm text-gray-500">Year: {year}</span>
-          <span className="text-sm text-gray-500">•</span>
-          <span className="text-sm text-gray-500">Role: {role}</span>
+        <div className="flex flex-wrap gap-3 mb-4">
+          <span className="text-sm text-gray-300 font-medium">Year: {year}</span>
+          <span className="text-sm text-gray-300">•</span>
+          <span className="text-sm text-gray-300 font-medium">Role: {role}</span>
         </div>
 
-        <h3 className="text-2xl font-bold text-gray-900 mb-3">{title}</h3>
-        <p className="text-gray-600 mb-6 leading-relaxed">{description}</p>
+        <h3 className="text-2xl font-extrabold text-white mb-3 leading-tight">{title}</h3>
+        <p className="text-base text-gray-200 mb-6 leading-relaxed">{description}</p>
 
         {metrics && metrics.length > 0 && (
           <div className="grid grid-cols-2 gap-4 mb-6">
             {metrics.map((metric, idx) => (
-              <div key={idx} className="bg-primary-50 rounded-lg p-4">
-                <div className="text-2xl font-bold text-primary-600 mb-1">
+              <div key={idx} className="bg-dark-surface rounded-lg p-4 border border-dark-border">
+                <div className="text-3xl font-extrabold text-accent-cyan mb-1">
                   {metric.value}
                 </div>
-                <div className="text-sm text-gray-600">{metric.label}</div>
+                <div className="text-sm text-gray-200 font-medium">{metric.label}</div>
               </div>
             ))}
           </div>
@@ -87,12 +87,12 @@ export const CaseStudyCard = ({
 
         <div className="space-y-3">
           <div>
-            <h4 className="text-sm font-semibold text-gray-700 mb-2">Services:</h4>
+            <h4 className="text-sm font-bold text-white mb-2">Services</h4>
             <div className="flex flex-wrap gap-2">
               {services.map((service, idx) => (
                 <span
                   key={idx}
-                  className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                  className="px-3 py-1.5 bg-dark-surface text-gray-200 rounded-full text-sm font-medium border border-dark-border"
                 >
                   {service}
                 </span>
@@ -102,12 +102,12 @@ export const CaseStudyCard = ({
 
           {technologies && technologies.length > 0 && (
             <div>
-              <h4 className="text-sm font-semibold text-gray-700 mb-2">Technologies:</h4>
+              <h4 className="text-sm font-bold text-white mb-2">Technologies</h4>
               <div className="flex flex-wrap gap-2">
                 {technologies.map((tech, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm"
+                    className="px-3 py-1.5 bg-accent-cyan/10 text-accent-cyan rounded-full text-sm font-medium border border-accent-cyan/20"
                   >
                     {tech}
                   </span>

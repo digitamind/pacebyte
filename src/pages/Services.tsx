@@ -1,7 +1,9 @@
+import { motion } from 'framer-motion';
 import { ServiceCard } from '../components/ServiceCard';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { InteractiveButton } from '../components/InteractiveButton';
 import { Link } from 'react-router-dom';
+import { staggerContainer } from '../utils/animations';
 
 const services = [
   {
@@ -54,24 +56,27 @@ export const Services = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-dark-base relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="up">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-8 text-center leading-tight">
               Our Services
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
-              Comprehensive technology solutions to accelerate your digital transformation. 
-              From enterprise applications to AI automation, we deliver byte-sized solutions that keep you ahead.
-            </p>
           </ScrollReveal>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-dark-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: '-100px' }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+          >
             {services.map((service, index) => (
               <ServiceCard
                 key={index}
@@ -80,17 +85,13 @@ export const Services = () => {
                 index={index}
               />
             ))}
-          </div>
+          </motion.div>
 
           <ScrollReveal direction="up">
-            <div className="text-center bg-gray-50 rounded-xl p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            <div className="text-center bg-dark-elevated rounded-2xl p-10 border border-dark-border">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-6">
                 Need a Custom Solution?
               </h2>
-              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                Our team of experts can help you build a tailored solution that fits your unique business needs. 
-                Let's discuss how we can accelerate your digital transformation.
-              </p>
               <Link to="/contact">
                 <InteractiveButton size="lg" variant="primary">
                   Get in Touch
@@ -102,15 +103,13 @@ export const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-600 to-primary-700 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 bg-gradient-to-r from-accent-cyan/20 via-accent-purple/20 to-accent-green/20 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-mesh-strong opacity-40" />
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal direction="up">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
               Ready to Transform Your Business?
             </h2>
-            <p className="text-xl mb-8 text-primary-100">
-              Partner with Pacebyte and experience technology solutions at the speed of innovation.
-            </p>
             <Link to="/contact">
               <InteractiveButton size="lg" variant="secondary">
                 Start Your Project

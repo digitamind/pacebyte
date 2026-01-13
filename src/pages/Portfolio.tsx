@@ -102,22 +102,19 @@ export const Portfolio = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-dark-base relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="up">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-8 text-center leading-tight">
               Our Portfolio
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
-              Explore our successful projects and case studies. See how we've helped businesses 
-              transform their digital infrastructure and achieve remarkable results.
-            </p>
           </ScrollReveal>
         </div>
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 bg-white border-b border-gray-200 sticky top-20 z-20 backdrop-blur-sm bg-white/95">
+      <section className="py-6 glass border-b border-dark-border sticky top-20 z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -134,10 +131,10 @@ export const Portfolio = () => {
                 transition={{ duration: 0.3, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-6 py-2 rounded-full font-medium transition-all ${
+                className={`px-6 py-2 rounded-full font-medium transition-all focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-dark-surface ${
                   selectedFilter === filter
-                    ? 'bg-primary-600 text-white shadow-lg'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-accent-cyan text-dark-base shadow-lg glow-cyan'
+                    : 'bg-dark-elevated text-gray-200 hover:bg-dark-surface hover:text-white border border-dark-border'
                 }`}
               >
                 {filter}
@@ -148,7 +145,7 @@ export const Portfolio = () => {
       </section>
 
       {/* Case Studies Grid */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-dark-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatePresence mode="wait">
             <motion.div
@@ -184,15 +181,13 @@ export const Portfolio = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-600 to-primary-700 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 bg-gradient-to-r from-accent-cyan/20 via-accent-purple/20 to-accent-green/20 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-mesh-strong opacity-40" />
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal direction="up">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
               Ready to Start Your Project?
             </h2>
-            <p className="text-xl mb-8 text-primary-100">
-              Let's discuss how we can help transform your business with innovative technology solutions.
-            </p>
             <Link to="/contact">
               <InteractiveButton size="lg" variant="secondary">
                 Get in Touch

@@ -93,8 +93,9 @@ export const Home = () => {
       <Hero />
 
       {/* Stats Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-dark-surface relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={staggerContainer}
             initial="initial"
@@ -106,15 +107,15 @@ export const Home = () => {
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                whileHover={{ scale: 1.05, y: -5 }}
+                whileHover={{ scale: 1.08, y: -8 }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 className="text-center"
               >
-                <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-2">
+                <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-accent-cyan to-accent-purple bg-clip-text text-transparent mb-2">
                   <AnimatedCounter end={stat.value} />
                   {stat.suffix}
                 </div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
+                <div className="text-base text-gray-200 font-medium">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -122,15 +123,12 @@ export const Home = () => {
       </section>
 
       {/* Value Propositions */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-dark-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="up">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-white mb-12 leading-tight">
               Why Choose Pacebyte?
             </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-              We're not content with the status quo. We thrive on challenges and keep our finger on the pulse of emerging trends.
-            </p>
           </ScrollReveal>
 
           <motion.div
@@ -145,15 +143,15 @@ export const Home = () => {
                 key={index}
                 variants={fadeInUp}
                 whileHover={{ 
-                  y: -10, 
+                  y: -8, 
                   scale: 1.02,
                   transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
                 }}
-                className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow"
+                className="bg-dark-elevated rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow border border-dark-border"
               >
                 <div className="text-5xl mb-4">{prop.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{prop.title}</h3>
-                <p className="text-gray-600">{prop.description}</p>
+                <h3 className="text-xl font-extrabold text-white mb-3">{prop.title}</h3>
+                <p className="text-base text-gray-400 leading-relaxed">{prop.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -161,15 +159,13 @@ export const Home = () => {
       </section>
 
       {/* Featured Services */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-dark-surface relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-mesh opacity-20" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="up">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-white mb-12 leading-tight">
               Our Services
             </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-              Comprehensive technology solutions to accelerate your digital transformation.
-            </p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -201,15 +197,12 @@ export const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-dark-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="up">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-              Testimonials From Clients & Partners
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-white mb-12 leading-tight">
+              Testimonials
             </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-              Here are a few kind words from clients and partners about working with Pacebyte.
-            </p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -228,15 +221,13 @@ export const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-600 to-primary-700 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 bg-gradient-to-r from-accent-cyan/20 via-accent-purple/20 to-accent-green/20 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-mesh-strong opacity-40" />
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal direction="up">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
               Ready to Accelerate Your Digital Future?
             </h2>
-            <p className="text-xl mb-8 text-primary-100">
-              Let's discuss how Pacebyte can help transform your business with cutting-edge technology solutions.
-            </p>
             <Link to="/contact">
               <InteractiveButton size="lg" variant="secondary">
                 Get in Touch

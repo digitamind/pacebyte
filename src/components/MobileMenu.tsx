@@ -17,7 +17,7 @@ export const MobileMenu = ({ isOpen, onClose, links }: MobileMenuProps) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40"
             onClick={onClose}
           />
           <motion.div
@@ -25,12 +25,12 @@ export const MobileMenu = ({ isOpen, onClose, links }: MobileMenuProps) => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 overflow-y-auto"
+            className="fixed top-0 right-0 h-full w-80 glass shadow-xl z-50 overflow-y-auto border-l border-dark-border"
           >
             <div className="flex flex-col p-6">
               <button
                 onClick={onClose}
-                className="self-end mb-8 text-gray-600 hover:text-gray-900 transition-colors"
+                className="self-end mb-8 text-gray-300 hover:text-accent-cyan transition-colors"
                 aria-label="Close menu"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,7 +48,7 @@ export const MobileMenu = ({ isOpen, onClose, links }: MobileMenuProps) => {
                     <Link
                       to={link.path}
                       onClick={onClose}
-                      className="block py-3 px-4 text-lg font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
+                      className="block py-3 px-4 text-lg font-medium text-gray-300 hover:text-accent-cyan hover:bg-dark-surface rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-dark-elevated"
                     >
                       {link.label}
                     </Link>

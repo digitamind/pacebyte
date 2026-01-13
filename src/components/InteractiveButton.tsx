@@ -22,12 +22,12 @@ export const InteractiveButton = ({
   disabled = false,
   isLoading = false,
 }: InteractiveButtonProps) => {
-  const baseStyles = 'font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseStyles = 'font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark-surface disabled:opacity-50 disabled:cursor-not-allowed';
   
   const variantStyles = {
-    primary: 'bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:from-primary-600 hover:to-primary-700 focus:ring-primary-500 shadow-lg hover:shadow-xl',
-    secondary: 'bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500 shadow-lg hover:shadow-xl',
-    outline: 'border-2 border-primary-500 text-primary-600 hover:bg-primary-50 focus:ring-primary-500',
+    primary: 'bg-gradient-to-r from-accent-cyan to-accent-purple text-white hover:from-accent-purple hover:to-accent-cyan focus:ring-accent-cyan shadow-lg hover:shadow-xl glow-cyan',
+    secondary: 'bg-accent-purple text-white hover:bg-accent-purple/90 focus:ring-accent-purple shadow-lg hover:shadow-xl glow-purple',
+    outline: 'border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan/10 focus:ring-accent-cyan',
   };
 
   const sizeStyles = {
