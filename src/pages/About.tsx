@@ -5,29 +5,6 @@ import { fadeInUp, staggerContainer } from '../utils/animations';
 import { ScrollSection } from '../components/ScrollSection';
 import { KineticText } from '../components/KineticText';
 
-const timeline = [
-  {
-    year: '2014',
-    title: 'Foundation',
-    description: 'Pacebyte was founded with a vision to push the boundaries of what\'s possible in the tech industry.',
-  },
-  {
-    year: '2016',
-    title: 'Expansion',
-    description: 'Expanded our services to include enterprise solutions and cloud infrastructure.',
-  },
-  {
-    year: '2019',
-    title: 'AI Integration',
-    description: 'Launched our AI and Machine Learning division to help clients leverage intelligent automation.',
-  },
-  {
-    year: '2024',
-    title: 'Today',
-    description: 'Leading digital transformation for businesses worldwide, delivering innovative solutions at the speed of progress.',
-  },
-];
-
 const values = [
   {
     title: 'Innovation First',
@@ -218,45 +195,6 @@ export const About = () => {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-20 bg-dark-base">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal direction="up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-12 text-center leading-tight">
-              Our Journey
-            </h2>
-          </ScrollReveal>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-accent-cyan/30 transform md:-translate-x-0.5"></div>
-              {timeline.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                  className={`relative mb-12 flex flex-col md:flex-row items-center ${
-                    index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                  }`}
-                >
-                  <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                    <div className="bg-dark-elevated rounded-lg shadow-lg p-6 border border-dark-border">
-                      <div className="text-accent-cyan font-bold text-lg mb-2">{item.year}</div>
-                      <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                      <p className="text-gray-200">{item.description}</p>
-                    </div>
-                  </div>
-                  <div className="absolute left-4 md:left-1/2 w-8 h-8 bg-accent-cyan rounded-full border-4 border-dark-base shadow-lg transform md:-translate-x-1/2 -translate-x-1/2"></div>
-                  <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pl-8' : 'md:pr-8'}`}></div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Values */}
       <section className="py-20 bg-dark-surface relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh opacity-20" />
@@ -299,39 +237,33 @@ export const About = () => {
             </h2>
           </ScrollReveal>
 
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, margin: '-50px' }}
-            className="space-y-10"
-          >
-            {techStackCategories.map((category, catIndex) => (
-              <motion.div
-                key={catIndex}
-                variants={fadeInUp}
-              >
-                <h3 className="text-xl font-extrabold text-white mb-6">{category.name}</h3>
+          <div className="space-y-10">
+            {techStackCategories.map((category, catIndex) => {
+              const baseIndex = catIndex * category.technologies.length;
+              return (
                 <motion.div
-                  variants={staggerContainer}
-                  initial="initial"
-                  whileInView="animate"
+                  key={catIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-50px' }}
-                  className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6"
+                  transition={{ duration: 0.3, delay: catIndex * 0.05 }}
                 >
-                  {category.technologies.map((tech, techIndex) => (
-                    <TechStackCard
-                      key={techIndex}
-                      name={tech.name}
-                      category={category.name}
-                      icon={tech.icon}
-                      index={catIndex * 10 + techIndex}
-                    />
-                  ))}
+                  <h3 className="text-xl font-extrabold text-white mb-6">{category.name}</h3>
+                  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                    {category.technologies.map((tech, techIndex) => (
+                      <TechStackCard
+                        key={techIndex}
+                        name={tech.name}
+                        category={category.name}
+                        icon={tech.icon}
+                        index={baseIndex + techIndex}
+                      />
+                    ))}
+                  </div>
                 </motion.div>
-              </motion.div>
-            ))}
-          </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
 

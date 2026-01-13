@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { InteractiveButton } from '../components/InteractiveButton';
 import { fadeInUp, staggerContainer } from '../utils/animations';
@@ -83,8 +84,46 @@ export const Contact = () => {
               animate="animate"
               variants={fadeInUp}
             >
-              <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-6">Send us a message</h2>
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-4">Send us a message</h2>
+              <p className="text-gray-300 mb-6">
+                Choose how you'd like to reach us, or fill out the form below
+              </p>
+              
+              {/* Quick Action Buttons */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+                <Link to="#form" className="block">
+                  <motion.div
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="p-4 bg-dark-elevated rounded-lg border border-dark-border hover:border-accent-cyan/50 transition-all text-center"
+                  >
+                    <div className="text-2xl mb-2">📧</div>
+                    <div className="text-sm font-medium text-white">General Inquiry</div>
+                  </motion.div>
+                </Link>
+                <Link to="#form" className="block">
+                  <motion.div
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="p-4 bg-dark-elevated rounded-lg border border-dark-border hover:border-accent-cyan/50 transition-all text-center"
+                  >
+                    <div className="text-2xl mb-2">📅</div>
+                    <div className="text-sm font-medium text-white">Schedule Call</div>
+                  </motion.div>
+                </Link>
+                <Link to="#form" className="block">
+                  <motion.div
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="p-4 bg-dark-elevated rounded-lg border border-dark-border hover:border-accent-cyan/50 transition-all text-center"
+                  >
+                    <div className="text-2xl mb-2">💰</div>
+                    <div className="text-sm font-medium text-white">Get Estimate</div>
+                  </motion.div>
+                </Link>
+              </div>
+
+              <form id="form" onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
                   id="name"
                   label="Name"

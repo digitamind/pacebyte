@@ -9,6 +9,7 @@ const navLinks = [
   { path: '/about', label: 'About' },
   { path: '/services', label: 'Services' },
   { path: '/portfolio', label: 'Portfolio' },
+  { path: '/faq', label: 'FAQ' },
   { path: '/contact', label: 'Contact' },
 ];
 
@@ -48,9 +49,14 @@ export const Navigation = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <Link to="/" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2 group">
               <motion.span
-                className="text-2xl font-bold bg-gradient-to-r from-accent-cyan to-accent-purple bg-clip-text text-transparent"
+                className="text-2xl font-extrabold bg-gradient-to-r from-accent-cyan via-accent-purple to-accent-cyan bg-clip-text text-transparent tracking-tighter"
+                style={{
+                  backgroundSize: '200% 100%',
+                  animation: 'gradient-shift 4s ease infinite',
+                  letterSpacing: '-0.025em',
+                }}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >

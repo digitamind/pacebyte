@@ -6,11 +6,22 @@
   body {
     @apply bg-dark-base text-gray-100 antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
   html {
     scroll-behavior: smooth;
     background-color: #0a0a0f;
+  }
+}
+
+/* Gradient animation for logo */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 
@@ -81,6 +92,23 @@
   @apply bg-accent-cyan;
 }
 
+/* Performance-optimized fade-in animation for tech stack */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tech-stack-fade-in {
+  animation: fadeInUp 0.4s ease-out forwards;
+  opacity: 0;
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -90,5 +118,10 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  
+  .tech-stack-fade-in {
+    animation: none !important;
+    opacity: 1 !important;
   }
 }

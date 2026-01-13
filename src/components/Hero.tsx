@@ -84,6 +84,11 @@ export const Hero = ({
                 {ctaText}
               </InteractiveButton>
             </Link>
+            <Link to={ctaLink}>
+              <InteractiveButton size="lg" variant="outline">
+                Schedule Free Consultation
+              </InteractiveButton>
+            </Link>
             <Link to="/services">
               <InteractiveButton size="lg" variant="outline">
                 Our Services

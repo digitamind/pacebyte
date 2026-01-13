@@ -89,15 +89,29 @@ const serviceFilters = [
   'Digital Transformation',
 ];
 
+// Map filter labels to service keywords for better matching
+const filterToKeywords: Record<string, string[]> = {
+  'Enterprise Development': ['Enterprise Development', 'Enterprise App'],
+  'Fintech Solutions': ['Fintech', 'Payment Integration', 'Payment'],
+  'Cloud & DevOps': ['Cloud Infrastructure', 'DevOps', 'Cloud'],
+  'AI & ML': ['Machine Learning', 'AI Automation', 'AI', 'ML'],
+  'Digital Transformation': ['Digital Transformation'],
+};
+
 export const Portfolio = () => {
   const [selectedFilter, setSelectedFilter] = useState('All');
 
   const filteredCaseStudies =
     selectedFilter === 'All'
       ? caseStudies
-      : caseStudies.filter((study) =>
-          study.services.some((service) => service.includes(selectedFilter.split(' ')[0]))
-        );
+      : caseStudies.filter((study) => {
+          const keywords = filterToKeywords[selectedFilter] || [selectedFilter];
+          return study.services.some((service) =>
+            keywords.some((keyword) =>
+              service.toLowerCase().includes(keyword.toLowerCase())
+            )
+          );
+        });
 
   return (
     <div className="min-h-screen pt-20">
@@ -148,35 +162,42 @@ export const Portfolio = () => {
       <section className="py-20 bg-dark-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatePresence mode="wait">
-            <motion.div
-              layout
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-8"
-            >
-              {filteredCaseStudies.map((study, index) => (
-                <CaseStudyCard
-                  key={`${study.title}-${index}`}
-                  title={study.title}
-                  description={study.description}
-                  year={study.year}
-                  role={study.role}
-                  services={study.services}
-                  technologies={study.technologies}
-                  metrics={study.metrics}
-                  index={index}
-                />
-              ))}
-            </motion.div>
+            {filteredCaseStudies.length > 0 ? (
+              <motion.div
+                layout
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+              >
+                {filteredCaseStudies.map((study, index) => (
+                  <CaseStudyCard
+                    key={`${study.title}-${index}`}
+                    title={study.title}
+                    description={study.description}
+                    year={study.year}
+                    role={study.role}
+                    services={study.services}
+                    technologies={study.technologies}
+                    metrics={study.metrics}
+                    index={index}
+                  />
+                ))}
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                className="text-center py-12"
+              >
+                <div className="text-6xl mb-4">🔍</div>
+                <p className="text-gray-300 text-lg font-medium mb-2">No case studies found</p>
+                <p className="text-gray-400 text-sm">Try selecting a different filter</p>
+              </motion.div>
+            )}
           </AnimatePresence>
-
-          {filteredCaseStudies.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-gray-300 text-lg">No case studies found for this filter.</p>
-            </div>
-          )}
         </div>
       </section>
 

@@ -2,19 +2,28 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useSmoothScroll } from '../hooks/useSmoothScroll';
 
+// Map footer service labels to service page anchor IDs
+const serviceAnchorMap: Record<string, string> = {
+  'Enterprise Development': 'enterprise-development',
+  'Fintech Solutions': 'fintech-payment-solutions',
+  'Cloud & DevOps': 'cloud-infrastructure-devops',
+  'AI & ML': 'ai-machine-learning',
+};
+
 const footerLinks = {
   company: [
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
     { path: '/services', label: 'Services' },
     { path: '/portfolio', label: 'Portfolio' },
+    { path: '/faq', label: 'FAQ' },
     { path: '/contact', label: 'Contact' },
   ],
   services: [
-    { label: 'Enterprise Development' },
-    { label: 'Fintech Solutions' },
-    { label: 'Cloud & DevOps' },
-    { label: 'AI & ML' },
+    { label: 'Enterprise Development', anchor: serviceAnchorMap['Enterprise Development'] },
+    { label: 'Fintech Solutions', anchor: serviceAnchorMap['Fintech Solutions'] },
+    { label: 'Cloud & DevOps', anchor: serviceAnchorMap['Cloud & DevOps'] },
+    { label: 'AI & ML', anchor: serviceAnchorMap['AI & ML'] },
   ],
 };
 
@@ -37,7 +46,7 @@ export const Footer = () => {
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-accent-cyan to-accent-purple bg-clip-text text-transparent mb-4">
+            <h3 className="text-2xl font-extrabold bg-gradient-to-r from-accent-cyan via-accent-purple to-accent-cyan bg-clip-text text-transparent mb-4 tracking-tighter" style={{ letterSpacing: '-0.025em' }}>
               Pacebyte
             </h3>
             <p className="text-sm text-gray-400">
@@ -76,9 +85,31 @@ export const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.services.map((service, index) => (
                 <li key={index}>
-                  <span className="text-sm hover:text-primary-400 transition-colors cursor-pointer">
-                    {service.label}
-                  </span>
+                  {service.anchor ? (
+                    <Link
+                      to={`/services#${service.anchor}`}
+                      className="text-sm hover:text-accent-cyan transition-colors"
+                      onClick={(e) => {
+                        // If we're already on the services page, handle smooth scroll
+                        if (window.location.pathname === '/services') {
+                          e.preventDefault();
+                          const element = document.getElementById(service.anchor!);
+                          if (element) {
+                            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            // Open the category if it's closed
+                            const button = element.querySelector('button');
+                            if (button && button.getAttribute('aria-expanded') === 'false') {
+                              button.click();
+                            }
+                          }
+                        }
+                      }}
+                    >
+                      {service.label}
+                    </Link>
+                  ) : (
+                    <span className="text-sm text-gray-400">{service.label}</span>
+                  )}
                 </li>
               ))}
             </ul>
