@@ -742,56 +742,66 @@ export const Services = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Handle scroll to anchor when page loads with hash
-    if (location.hash) {
-      const hash = location.hash.substring(1); // Remove the #
-      
-      // Wait for DOM to be ready and animations to settle
-      const handleScrollAndFocus = () => {
-        const element = document.getElementById(hash);
-        if (element) {
-          // Open the category if it's closed (do this first)
-          const button = element.querySelector('button');
-          if (button && button.getAttribute('aria-expanded') === 'false') {
-            button.click();
-            // Wait for the accordion to open before scrolling
-            setTimeout(() => {
+    // Wait for page transition to complete before handling scroll
+    const timeoutId = setTimeout(() => {
+      if (location.hash) {
+        // Handle scroll to anchor when page loads with hash
+        const hash = location.hash.substring(1); // Remove the #
+        
+        const handleScrollAndFocus = () => {
+          const element = document.getElementById(hash);
+          if (element) {
+            // Open the category if it's closed (do this first)
+            const button = element.querySelector('button');
+            if (button && button.getAttribute('aria-expanded') === 'false') {
+              button.click();
+              // Wait for the accordion to open before scrolling
+              setTimeout(() => {
+                scrollToElement(element, button);
+              }, 350); // Wait for accordion animation
+            } else {
               scrollToElement(element, button);
-            }, 350); // Wait for accordion animation
-          } else {
-            scrollToElement(element, button);
+            }
           }
-        }
-      };
+        };
 
-      const scrollToElement = (element: HTMLElement, button: HTMLButtonElement | null) => {
-        // Calculate offset for navigation header (80px)
-        const offset = 80;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        const scrollToElement = (element: HTMLElement, button: HTMLButtonElement | null) => {
+          // Calculate offset for navigation header (80px)
+          const offset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth',
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+
+          // Set focus on the button after scrolling
+          setTimeout(() => {
+            if (button) {
+              button.focus();
+              // Add a visual focus indicator by briefly highlighting
+              button.classList.add('ring-2', 'ring-accent-cyan', 'ring-offset-2');
+              setTimeout(() => {
+                button.classList.remove('ring-2', 'ring-accent-cyan', 'ring-offset-2');
+              }, 2000);
+            }
+          }, 500); // Wait for scroll to complete
+        };
+
+        // Initial delay for DOM to be ready
+        setTimeout(handleScrollAndFocus, 100);
+      } else {
+        // No hash - ensure we're at the top of the page
+        // Use requestAnimationFrame to ensure this happens after any other scroll operations
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
         });
+      }
+    }, 100); // Wait for page transition to start
 
-        // Set focus on the button after scrolling
-        setTimeout(() => {
-          if (button) {
-            button.focus();
-            // Add a visual focus indicator by briefly highlighting
-            button.classList.add('ring-2', 'ring-accent-cyan', 'ring-offset-2');
-            setTimeout(() => {
-              button.classList.remove('ring-2', 'ring-accent-cyan', 'ring-offset-2');
-            }, 2000);
-          }
-        }, 500); // Wait for scroll to complete
-      };
-
-      // Initial delay for page load
-      setTimeout(handleScrollAndFocus, 100);
-    }
-  }, [location.hash]);
+    return () => clearTimeout(timeoutId);
+  }, [location.pathname, location.hash]);
 
   return (
     <div className="min-h-screen pt-20">
