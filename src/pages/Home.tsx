@@ -5,7 +5,7 @@ import { Hero } from '../components/Hero';
 import { ServiceCard } from '../components/ServiceCard';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { InteractiveButton } from '../components/InteractiveButton';
-import { TestimonialCard } from '../components/TestimonialCard';
+import { TestimonialCarousel } from '../components/TestimonialCarousel';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 import { KineticText } from '../components/KineticText';
 import { ScrollSection } from '../components/ScrollSection';
@@ -250,7 +250,7 @@ export const Home = () => {
                   scale: 1.02,
                   transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
                 }}
-                className="bg-dark-elevated rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow border border-dark-border"
+                className="bg-dark-elevated rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow border border-dark-border text-center"
               >
                 <div className="text-5xl mb-4">{prop.icon}</div>
                 <h3 className="text-xl font-extrabold text-white mb-3">{prop.title}</h3>
@@ -392,17 +392,8 @@ export const Home = () => {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard
-                key={index}
-                quote={testimonial.quote}
-                author={testimonial.author}
-                role={testimonial.role}
-                company={testimonial.company}
-                index={index}
-              />
-            ))}
+          <div className="px-8 md:px-16">
+            <TestimonialCarousel testimonials={testimonials} autoPlay={true} autoPlayInterval={5000} />
           </div>
         </div>
       </section>

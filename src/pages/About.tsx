@@ -183,7 +183,7 @@ export const About = () => {
                 key={index}
                 variants={fadeInUp}
                 whileHover={{ y: -8, scale: 1.02 }}
-                className={`bg-gradient-to-br ${card.gradient} rounded-2xl p-6 border ${card.border} h-full flex flex-col`}
+                className={`bg-gradient-to-br ${card.gradient} rounded-2xl p-6 border ${card.border} h-full flex flex-col text-center`}
               >
                 <div className="text-5xl mb-4">{card.icon}</div>
                 <h3 className="text-2xl font-extrabold text-white mb-1">{card.title}</h3>

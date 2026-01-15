@@ -745,17 +745,51 @@ export const Services = () => {
     // Handle scroll to anchor when page loads with hash
     if (location.hash) {
       const hash = location.hash.substring(1); // Remove the #
-      setTimeout(() => {
+      
+      // Wait for DOM to be ready and animations to settle
+      const handleScrollAndFocus = () => {
         const element = document.getElementById(hash);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // Open the category if it's closed
+          // Open the category if it's closed (do this first)
           const button = element.querySelector('button');
           if (button && button.getAttribute('aria-expanded') === 'false') {
             button.click();
+            // Wait for the accordion to open before scrolling
+            setTimeout(() => {
+              scrollToElement(element, button);
+            }, 350); // Wait for accordion animation
+          } else {
+            scrollToElement(element, button);
           }
         }
-      }, 100); // Small delay to ensure DOM is ready
+      };
+
+      const scrollToElement = (element: HTMLElement, button: HTMLButtonElement | null) => {
+        // Calculate offset for navigation header (80px)
+        const offset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+
+        // Set focus on the button after scrolling
+        setTimeout(() => {
+          if (button) {
+            button.focus();
+            // Add a visual focus indicator by briefly highlighting
+            button.classList.add('ring-2', 'ring-accent-cyan', 'ring-offset-2');
+            setTimeout(() => {
+              button.classList.remove('ring-2', 'ring-accent-cyan', 'ring-offset-2');
+            }, 2000);
+          }
+        }, 500); // Wait for scroll to complete
+      };
+
+      // Initial delay for page load
+      setTimeout(handleScrollAndFocus, 100);
     }
   }, [location.hash]);
 

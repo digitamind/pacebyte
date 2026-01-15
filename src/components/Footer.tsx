@@ -33,6 +33,30 @@ const socialLinks = [
   { name: 'GitHub', href: 'https://github.com', icon: 'github' },
 ];
 
+const scrollToAndFocus = (element: HTMLElement, button: HTMLButtonElement | null) => {
+  // Calculate offset for navigation header (80px)
+  const offset = 80;
+  const elementPosition = element.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: 'smooth',
+  });
+
+  // Set focus on the button after scrolling
+  setTimeout(() => {
+    if (button) {
+      button.focus();
+      // Add a visual focus indicator by briefly highlighting
+      button.classList.add('ring-2', 'ring-accent-cyan', 'ring-offset-2');
+      setTimeout(() => {
+        button.classList.remove('ring-2', 'ring-accent-cyan', 'ring-offset-2');
+      }, 2000);
+    }
+  }, 500); // Wait for scroll to complete
+};
+
 export const Footer = () => {
   const { scrollToTop } = useSmoothScroll();
 
@@ -95,11 +119,17 @@ export const Footer = () => {
                           e.preventDefault();
                           const element = document.getElementById(service.anchor!);
                           if (element) {
-                            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            // Open the category if it's closed
-                            const button = element.querySelector('button');
+                            const button = element.querySelector('button') as HTMLButtonElement;
+                            
+                            // Open the category if it's closed (do this first)
                             if (button && button.getAttribute('aria-expanded') === 'false') {
                               button.click();
+                              // Wait for accordion to open before scrolling
+                              setTimeout(() => {
+                                scrollToAndFocus(element, button);
+                              }, 350);
+                            } else {
+                              scrollToAndFocus(element, button);
                             }
                           }
                         }
