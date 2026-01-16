@@ -1,5 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Hero } from '../components/Hero';
 import { ServiceCard } from '../components/ServiceCard';
@@ -65,10 +64,10 @@ const featuredServices = [
 ];
 
 const stats = [
-  { value: 50, suffix: '+', label: 'Projects Completed' },
-  { value: 30, suffix: '+', label: 'Happy Clients' },
-  { value: 2, suffix: '+', label: 'Years in Business' },
-  { value: 24, suffix: '/7', label: 'Support' },
+  { label: 'Blockchain & Web3', icon: '⛓️' },
+  { label: 'Cloud & DevOps', icon: '☁️' },
+  { label: 'AI & ML', icon: '🤖' },
+  { label: '24/7 Support', icon: '🔄' },
 ];
 
 const valueProps = [
@@ -133,55 +132,15 @@ const testimonials = [
   },
 ];
 
-// Scroll-Progress-Based Counter Component
-const ScrollProgressCounter = ({
-  end,
-  progress,
-}: {
-  end: number;
-  progress: any; // useTransform return type
-}) => {
-  const [displayValue, setDisplayValue] = useState(0);
-
-  useEffect(() => {
-    const unsubscribe = progress.on('change', (latest: number) => {
-      // Apply easing for smooth animation
-      const eased = 1 - Math.pow(1 - latest, 3); // Ease out cubic
-      const currentValue = Math.floor(end * eased);
-      setDisplayValue(currentValue);
-    });
-
-    return () => unsubscribe();
-  }, [progress, end]);
-
-  return <span>{displayValue}</span>;
-};
-
 type StatItem = {
-  value: number;
-  suffix: string;
   label: string;
+  icon: string;
 };
 
-// Stats Section with Scroll-Progress-Based Animation
+// Stats Section
 const StatsSection = ({ stats }: { stats: StatItem[] }) => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  });
-
-  // Map scroll progress (0 to 1) to animation progress
-  // Start animating when section is 20% visible, complete at 80%
-  const animationProgress = useTransform(scrollYProgress, [0.2, 0.8], [0, 1], {
-    clamp: true,
-  });
-
   return (
-    <section
-      ref={sectionRef}
-      className="py-20 bg-dark-surface relative overflow-hidden"
-    >
+    <section className="py-20 bg-dark-surface relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -195,18 +154,15 @@ const StatsSection = ({ stats }: { stats: StatItem[] }) => {
             <motion.div
               key={index}
               variants={fadeInUp}
-              whileHover={{ scale: 1.08, y: -8 }}
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ 
+                scale: 1.05,
+                transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
+              }}
               className="text-center"
             >
-              <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-accent-cyan to-accent-purple bg-clip-text text-transparent mb-2">
-                <ScrollProgressCounter
-                  end={stat.value}
-                  progress={animationProgress}
-                />
-                {stat.suffix}
+              <div className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-200 hover:text-white transition-colors duration-300">
+                {stat.label}
               </div>
-              <div className="text-base text-gray-200 font-medium">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>
