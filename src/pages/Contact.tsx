@@ -6,6 +6,7 @@ import { ScrollReveal } from '../components/ScrollReveal';
 import { InteractiveButton } from '../components/InteractiveButton';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 import { FormField } from '../components/FormField';
+import { PageMeta } from '../components/PageMeta';
 
 interface ContactFormData {
   name: string;
@@ -22,7 +23,7 @@ const contactInfo = [
   },
   {
     title: 'Phone',
-    value: '+234 (0) 000 000 0000',
+    value: '+234 (0) 808 196 0633',
     icon: '📞',
   },
   {
@@ -35,7 +36,7 @@ const contactInfo = [
 export const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  
+
   const {
     register,
     handleSubmit,
@@ -62,6 +63,11 @@ export const Contact = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <PageMeta
+        title="Get in Touch"
+        description="Contact Pacebyte to discuss your project needs. Schedule a free consultation, get a project estimate, or reach out with any questions about our IT consultancy services."
+        path="/contact"
+      />
       {/* Hero Section */}
       <section className="py-20 bg-dark-base relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
@@ -88,7 +94,7 @@ export const Contact = () => {
               <p className="text-gray-300 mb-6">
                 Choose how you'd like to reach us, or fill out the form below
               </p>
-              
+
               {/* Quick Action Buttons */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
                 <Link to="#form" className="block">
@@ -219,20 +225,34 @@ export const Contact = () => {
                 viewport={{ once: true, margin: '-50px' }}
                 className="space-y-6"
               >
-                {contactInfo.map((info, index) => (
-                  <motion.div
-                    key={index}
-                    variants={fadeInUp}
-                    whileHover={{ x: 8, scale: 1.02 }}
-                    className="flex items-start space-x-4 p-6 bg-dark-elevated rounded-2xl hover:bg-dark-base transition-colors border border-dark-border"
-                  >
-                    <div className="text-3xl text-accent-cyan">{info.icon}</div>
-                    <div>
-                      <h3 className="text-base font-bold text-white mb-1">{info.title}</h3>
-                      <p className="text-base text-gray-200">{info.value}</p>
-                    </div>
-                  </motion.div>
-                ))}
+                {contactInfo.map((info, index) => {
+                  const isPhone = info.title === 'Phone';
+                  const phoneNumber = info.value.replace(/\s+/g, '').replace(/[()]/g, '');
+
+                  return (
+                    <motion.div
+                      key={index}
+                      variants={fadeInUp}
+                      whileHover={{ x: 8, scale: 1.02 }}
+                      className="flex items-start space-x-4 p-6 bg-dark-elevated rounded-2xl hover:bg-dark-base transition-colors border border-dark-border"
+                    >
+                      <div className="text-3xl text-accent-cyan">{info.icon}</div>
+                      <div>
+                        <h3 className="text-base font-bold text-white mb-1">{info.title}</h3>
+                        {isPhone ? (
+                          <a
+                            href={`tel:${phoneNumber}`}
+                            className="text-base text-gray-200 hover:text-accent-cyan transition-colors"
+                          >
+                            {info.value}
+                          </a>
+                        ) : (
+                          <p className="text-base text-gray-200">{info.value}</p>
+                        )}
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </motion.div>
 
               <motion.div
@@ -246,7 +266,7 @@ export const Contact = () => {
                 <div className="space-y-2">
                   <p className="text-gray-200">Monday - Friday: 9:00 AM - 6:00 PM</p>
                   <p className="text-gray-200">Saturday: 10:00 AM - 4:00 PM</p>
-                  <p className="text-gray-400">Sunday: Closed</p>
+                  <p className="text-gray-300">Sunday: Closed</p>
                 </div>
               </motion.div>
             </motion.div>

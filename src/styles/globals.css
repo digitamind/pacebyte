@@ -10,7 +10,6 @@
   }
 
   html {
-    scroll-behavior: smooth;
     background-color: #0a0a0f;
   }
 }
@@ -158,35 +157,6 @@
   animation: gradient-mesh-bg 20s linear infinite alternate;
 }
 
-/* Circuit grid — tech network background */
-.circuit-grid {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
-@keyframes node-glow {
-
-  0%,
-  100% {
-    opacity: 0.08;
-    transform: scale(1) translateZ(0);
-    box-shadow: 0 0 2px 0 rgba(0, 212, 255, 0.1);
-  }
-
-  50% {
-    opacity: 0.6;
-    transform: scale(1.6) translateZ(0);
-    box-shadow: 0 0 12px 4px rgba(0, 212, 255, 0.35);
-  }
-}
-
-.node-glow {
-  animation: node-glow 10s ease-in-out infinite;
-  will-change: opacity, transform;
-}
-
 @keyframes data-pulse-h {
   0% {
     transform: translateX(-60px) translateZ(0);
@@ -229,12 +199,10 @@
 
 .data-pulse-h {
   animation: data-pulse-h 18s linear infinite;
-  will-change: transform, opacity;
 }
 
 .data-pulse-v {
   animation: data-pulse-v 22s linear infinite;
-  will-change: transform, opacity;
 }
 
 /* Performance-optimized fade-in animation for tech stack */

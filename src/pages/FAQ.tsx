@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { Accordion } from '../components/Accordion';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { InteractiveButton } from '../components/InteractiveButton';
 import { GradientMesh } from '../components/GradientMesh';
 import { fadeInUp, staggerContainer } from '../utils/animations';
+import { PageMeta } from '../components/PageMeta';
 
 const faqCategories = [
   {
@@ -101,6 +101,11 @@ const faqCategories = [
 export const FAQ = () => {
   return (
     <div className="min-h-screen pt-20">
+      <PageMeta
+        title="Frequently Asked Questions"
+        description="Find answers to common questions about Pacebyte's services, processes, pricing, and how we work. Learn about our agile methodologies, technology stack, and engagement models."
+        path="/faq"
+      />
       {/* Hero Section */}
       <section className="py-20 bg-dark-base relative overflow-hidden">
         <GradientMesh intensity="normal" />
@@ -160,16 +165,12 @@ export const FAQ = () => {
               We're here to help! Get in touch with us and we'll respond as soon as possible.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <InteractiveButton size="lg" variant="primary">
-                  Contact Us
-                </InteractiveButton>
-              </Link>
-              <Link to="/services">
-                <InteractiveButton size="lg" variant="outline">
-                  View Our Services
-                </InteractiveButton>
-              </Link>
+              <InteractiveButton size="lg" variant="primary" to="/contact">
+                Contact Us
+              </InteractiveButton>
+              <InteractiveButton size="lg" variant="outline" to="/services">
+                View Our Services
+              </InteractiveButton>
             </div>
           </motion.div>
         </div>

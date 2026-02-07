@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { useMobile } from '../hooks/useMobile';
-import { Link } from 'react-router-dom';
 import { InteractiveButton } from './InteractiveButton';
 
 interface ServiceCardProps {
@@ -143,11 +142,9 @@ export const ServiceCard = ({
                     )}
 
                     <div className="pt-2">
-                      <Link to="/contact">
-                        <InteractiveButton size="sm" variant="outline" className="w-full">
-                          Get Started
-                        </InteractiveButton>
-                      </Link>
+                      <InteractiveButton size="sm" variant="outline" className="w-full" to="/contact">
+                        Get Started
+                      </InteractiveButton>
                     </div>
                   </motion.div>
                 )}

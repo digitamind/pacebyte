@@ -89,7 +89,7 @@ export const PageTransition = ({ children, direction = 'initial' }: PageTransiti
         },
       }}
       style={{
-        willChange: 'transform, opacity, filter',
+        // Framer Motion auto-promotes animated properties to the compositor
       }}
     >
       {children}

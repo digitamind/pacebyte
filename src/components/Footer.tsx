@@ -73,9 +73,25 @@ export const Footer = () => {
             <h3 className="text-2xl font-extrabold bg-gradient-to-r from-accent-cyan via-accent-purple to-accent-cyan bg-clip-text text-transparent mb-4 tracking-tighter" style={{ letterSpacing: '-0.025em' }}>
               Pacebyte
             </h3>
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-gray-300 mb-4">
               Technology solutions at the speed of innovation. Accelerating your journey into the digital future.
             </p>
+            <div className="space-y-2">
+              <a
+                href="mailto:contact@pacebyte.com"
+                className="text-sm text-gray-300 hover:text-accent-cyan transition-colors flex items-center space-x-2"
+              >
+                <span>✉️</span>
+                <span>contact@pacebyte.com</span>
+              </a>
+              <a
+                href="tel:+2348081960633"
+                className="text-sm text-gray-300 hover:text-accent-cyan transition-colors flex items-center space-x-2"
+              >
+                <span>📞</span>
+                <span>+234 (0) 808 196 0633</span>
+              </a>
+            </div>
           </motion.div>
 
           <motion.div
@@ -120,7 +136,7 @@ export const Footer = () => {
                           const element = document.getElementById(service.anchor!);
                           if (element) {
                             const button = element.querySelector('button') as HTMLButtonElement;
-                            
+
                             // Open the category if it's closed (do this first)
                             if (button && button.getAttribute('aria-expanded') === 'false') {
                               button.click();
@@ -138,7 +154,7 @@ export const Footer = () => {
                       {service.label}
                     </Link>
                   ) : (
-                    <span className="text-sm text-gray-400">{service.label}</span>
+                    <span className="text-sm text-gray-300">{service.label}</span>
                   )}
                 </li>
               ))}
@@ -178,12 +194,12 @@ export const Footer = () => {
         </div>
 
         <div className="mt-8 pt-8 border-t border-dark-border flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-300">
             © {new Date().getFullYear()} Pacebyte. All rights reserved.
           </p>
           <motion.button
             onClick={scrollToTop}
-            className="mt-4 md:mt-0 px-4 py-2 text-sm text-gray-400 hover:text-accent-cyan transition-colors flex items-center space-x-2"
+            className="mt-4 md:mt-0 px-4 py-2 text-sm text-gray-300 hover:text-accent-cyan transition-colors flex items-center space-x-2"
             whileHover={{ y: -2 }}
             whileTap={{ y: 0 }}
           >

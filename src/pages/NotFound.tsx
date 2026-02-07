@@ -3,10 +3,16 @@ import { Link } from 'react-router-dom';
 import { InteractiveButton } from '../components/InteractiveButton';
 import { GradientMesh } from '../components/GradientMesh';
 import { fadeInUp, staggerContainer } from '../utils/animations';
+import { PageMeta } from '../components/PageMeta';
 
 export const NotFound = () => {
   return (
     <div className="min-h-screen pt-20 flex items-center justify-center bg-dark-base relative overflow-hidden">
+      <PageMeta
+        title="Page Not Found"
+        description="The page you're looking for could not be found. Return to Pacebyte's homepage or contact us for assistance."
+        path="/404"
+      />
       <GradientMesh intensity="strong" />
       
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
@@ -106,16 +112,12 @@ export const NotFound = () => {
             transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
-            <Link to="/">
-              <InteractiveButton size="lg" variant="primary">
-                Go Home
-              </InteractiveButton>
-            </Link>
-            <Link to="/contact">
-              <InteractiveButton size="lg" variant="outline">
-                Contact Us
-              </InteractiveButton>
-            </Link>
+            <InteractiveButton size="lg" variant="primary" to="/">
+              Go Home
+            </InteractiveButton>
+            <InteractiveButton size="lg" variant="outline" to="/contact">
+              Contact Us
+            </InteractiveButton>
           </motion.div>
 
           {/* Quick Links */}
@@ -124,7 +126,7 @@ export const NotFound = () => {
             transition={{ delay: 0.4 }}
             className="border-t border-dark-border pt-8"
           >
-            <p className="text-sm text-gray-400 mb-4">Or explore our site:</p>
+            <p className="text-sm text-gray-300 mb-4">Or explore our site:</p>
             <div className="flex flex-wrap justify-center gap-4">
               {[
                 { path: '/', label: 'Home' },

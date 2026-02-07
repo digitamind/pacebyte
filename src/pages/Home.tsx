@@ -4,10 +4,13 @@ import { Hero } from '../components/Hero';
 import { ServiceCard } from '../components/ServiceCard';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { InteractiveButton } from '../components/InteractiveButton';
-import { TestimonialCarousel } from '../components/TestimonialCarousel';
+// import { TestimonialCarousel } from '../components/TestimonialCarousel'; // Commented out - testimonials section removed
 import { fadeInUp, staggerContainer } from '../utils/animations';
 import { KineticText } from '../components/KineticText';
 import { ScrollSection } from '../components/ScrollSection';
+import { PageMeta } from '../components/PageMeta';
+import { AnimatedCounter } from '../components/AnimatedCounter';
+import { PartnerCarousel } from '../components/PartnerCarousel';
 
 const featuredServices = [
   {
@@ -64,10 +67,73 @@ const featuredServices = [
 ];
 
 const stats = [
-  { label: 'Blockchain & Web3', icon: '⛓️', link: '/services#blockchain-web3-development' },
-  { label: 'Cloud & DevOps', icon: '☁️', link: '/services#cloud-infrastructure-devops' },
-  { label: 'AI & ML', icon: '🤖', link: '/services#ai-machine-learning' },
-  { label: '24/7 Support', icon: '🔄', link: '/services' },
+  {
+    value: '8+',
+    label: 'Years Experience',
+    icon: '⏱️',
+    numericValue: 8,
+    suffix: '+'
+  },
+  {
+    value: '20+',
+    label: 'Technologies',
+    icon: '🛠️',
+    link: '/about',
+    numericValue: 20,
+    suffix: '+'
+  },
+  {
+    value: '100%',
+    label: 'Client Satisfaction',
+    icon: '⭐',
+    numericValue: 100,
+    suffix: '%'
+  },
+  {
+    value: '24/7',
+    label: 'Support',
+    icon: '🔄',
+    link: '/contact'
+  },
+];
+
+const technologyPartners = [
+  {
+    name: 'AWS',
+    logo: '/logos/icons8-aws-logo.svg',
+    category: 'Cloud',
+    url: 'https://aws.amazon.com'
+  },
+  {
+    name: 'Google Cloud',
+    logo: '/logos/icons8-google-cloud.svg',
+    category: 'Cloud',
+    url: 'https://cloud.google.com'
+  },
+  {
+    name: 'Microsoft',
+    logo: '/logos/icons8-microsoft.svg',
+    category: 'Cloud',
+    url: 'https://azure.microsoft.com'
+  },
+  {
+    name: 'Stripe',
+    logo: '/logos/icons8-stripe-logo-50.png',
+    category: 'Payment',
+    url: 'https://stripe.com'
+  },
+  {
+    name: 'Paystack',
+    logo: '/logos/Paystack-logo.svg',
+    category: 'Payment',
+    url: 'https://paystack.com'
+  },
+  {
+    name: 'Huawei',
+    logo: '/logos/icons8-huawei-logo-64.png',
+    category: 'Infrastructure',
+    url: 'https://huawei.com'
+  },
 ];
 
 const valueProps = [
@@ -93,49 +159,53 @@ const valueProps = [
   },
 ];
 
-const testimonials = [
-  {
-    quote: 'Pacebyte transformed our digital infrastructure with their cloud migration expertise. The team\'s professionalism and technical depth exceeded our expectations.',
-    author: 'Sarah Johnson',
-    role: 'CTO',
-    company: 'TechCorp Inc.',
-  },
-  {
-    quote: 'Working with Pacebyte on our fintech solution was seamless. They delivered a robust payment integration system that increased our transaction volume by 40%.',
-    author: 'Michael Chen',
-    role: 'Product Director',
-    company: 'FinanceFlow',
-  },
-  {
-    quote: 'Pacebyte\'s AI automation solutions revolutionized our operations. Their machine learning models reduced processing time by 60% and improved accuracy significantly.',
-    author: 'Emily Rodriguez',
-    role: 'Operations Manager',
-    company: 'DataSystems Ltd.',
-  },
-  {
-    quote: 'The enterprise application developed by Pacebyte has been a game-changer for our business. Their attention to detail and scalable architecture is impressive.',
-    author: 'David Thompson',
-    role: 'CEO',
-    company: 'Enterprise Solutions',
-  },
-  {
-    quote: 'Pacebyte\'s DevOps implementation streamlined our deployment process. We now deploy 5x faster with zero downtime. Outstanding work!',
-    author: 'Lisa Wang',
-    role: 'Engineering Lead',
-    company: 'CloudFirst',
-  },
-  {
-    quote: 'Their solution architecture consulting helped us make critical technology decisions. Pacebyte\'s expertise saved us months of trial and error.',
-    author: 'Robert Martinez',
-    role: 'VP of Engineering',
-    company: 'InnovateTech',
-  },
-];
+// Testimonials data - commented out for startup without testimonials
+// const testimonials = [
+//   {
+//     quote: 'Pacebyte transformed our digital infrastructure with their cloud migration expertise. The team\'s professionalism and technical depth exceeded our expectations.',
+//     author: 'Sarah Johnson',
+//     role: 'CTO',
+//     company: 'TechCorp Inc.',
+//   },
+//   {
+//     quote: 'Working with Pacebyte on our fintech solution was seamless. They delivered a robust payment integration system that increased our transaction volume by 40%.',
+//     author: 'Michael Chen',
+//     role: 'Product Director',
+//     company: 'FinanceFlow',
+//   },
+//   {
+//     quote: 'Pacebyte\'s AI automation solutions revolutionized our operations. Their machine learning models reduced processing time by 60% and improved accuracy significantly.',
+//     author: 'Emily Rodriguez',
+//     role: 'Operations Manager',
+//     company: 'DataSystems Ltd.',
+//   },
+//   {
+//     quote: 'The enterprise application developed by Pacebyte has been a game-changer for our business. Their attention to detail and scalable architecture is impressive.',
+//     author: 'David Thompson',
+//     role: 'CEO',
+//     company: 'Enterprise Solutions',
+//   },
+//   {
+//     quote: 'Pacebyte\'s DevOps implementation streamlined our deployment process. We now deploy 5x faster with zero downtime. Outstanding work!',
+//     author: 'Lisa Wang',
+//     role: 'Engineering Lead',
+//     company: 'CloudFirst',
+//   },
+//   {
+//     quote: 'Their solution architecture consulting helped us make critical technology decisions. Pacebyte\'s expertise saved us months of trial and error.',
+//     author: 'Robert Martinez',
+//     role: 'VP of Engineering',
+//     company: 'InnovateTech',
+//   },
+// ];
 
 type StatItem = {
+  value: string;
   label: string;
   icon: string;
   link?: string;
+  numericValue?: number;
+  suffix?: string;
 };
 
 // Stats Section - Horizontal Strip with Dividers
@@ -149,43 +219,51 @@ const StatsSection = ({ stats }: { stats: StatItem[] }) => {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: '-100px' }}
-          className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0"
+          className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0"
         >
-          {stats.map((stat, index) => (
-            <div key={index} className="flex items-center">
-              {stat.link ? (
-                <Link
-                  to={stat.link}
-                  className="no-underline"
-                >
-                  <motion.div
-                    variants={fadeInUp}
-                    whileHover={{
-                      scale: 1.05,
-                      transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
-                    }}
-                    className="text-base md:text-lg lg:text-xl font-semibold text-gray-200 hover:text-white transition-colors duration-300 cursor-pointer"
-                  >
-                    {stat.label}
-                  </motion.div>
-                </Link>
-              ) : (
-                <motion.div
-                  variants={fadeInUp}
-                  whileHover={{
-                    scale: 1.05,
-                    transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
-                  }}
-                  className="text-base md:text-lg lg:text-xl font-semibold text-gray-200 hover:text-white transition-colors duration-300"
-                >
+          {stats.map((stat, index) => {
+            const metricContent = (
+              <motion.div
+                variants={fadeInUp}
+                whileHover={{
+                  scale: 1.05,
+                  transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
+                }}
+                className={`flex flex-col items-center text-center ${stat.link ? 'cursor-pointer' : ''}`}
+              >
+                <div className="text-3xl md:text-4xl mb-2">{stat.icon}</div>
+                <div className="text-3xl md:text-4xl font-extrabold text-accent-cyan mb-1">
+                  {stat.numericValue !== undefined ? (
+                    <AnimatedCounter
+                      end={stat.numericValue}
+                      suffix={stat.suffix || ''}
+                      className="text-3xl md:text-4xl font-extrabold text-accent-cyan"
+                    />
+                  ) : (
+                    <span>{stat.value}</span>
+                  )}
+                </div>
+                <div className="text-sm md:text-base text-gray-300 font-medium">
                   {stat.label}
-                </motion.div>
-              )}
-              {index < stats.length - 1 && (
-                <span className="hidden md:inline mx-4 lg:mx-6 text-gray-600 text-xl">|</span>
-              )}
-            </div>
-          ))}
+                </div>
+              </motion.div>
+            );
+
+            return (
+              <div key={index} className="flex items-center">
+                {stat.link ? (
+                  <Link to={stat.link} className="no-underline">
+                    {metricContent}
+                  </Link>
+                ) : (
+                  metricContent
+                )}
+                {index < stats.length - 1 && (
+                  <span className="hidden md:inline mx-4 lg:mx-6 text-gray-600 text-xl">|</span>
+                )}
+              </div>
+            );
+          })}
         </motion.div>
       </div>
     </section>
@@ -195,6 +273,11 @@ const StatsSection = ({ stats }: { stats: StatItem[] }) => {
 export const Home = () => {
   return (
     <div className="min-h-screen">
+      <PageMeta
+        title="Technology Solutions at the Speed of Innovation"
+        description="Pacebyte accelerates your journey into the digital future, delivering byte-sized solutions that keep you ahead of the competition. Enterprise app development, fintech solutions, DevOps, AI automation, and digital transformation services."
+        path="/"
+      />
       <Hero />
 
       {/* Stats Section */}
@@ -231,7 +314,7 @@ export const Home = () => {
               >
                 <div className="text-5xl mb-4">{prop.icon}</div>
                 <h3 className="text-xl font-extrabold text-white mb-3">{prop.title}</h3>
-                <p className="text-base text-gray-400 leading-relaxed">{prop.description}</p>
+                <p className="text-base text-gray-300 leading-relaxed">{prop.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -337,29 +420,23 @@ export const Home = () => {
           <ScrollReveal direction="up">
             <div className="text-center space-y-4">
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/services">
-                  <InteractiveButton size="lg" variant="primary">
-                    View All Services
-                  </InteractiveButton>
-                </Link>
-                <Link to="/contact">
-                  <InteractiveButton size="lg" variant="outline">
-                    Get Project Estimate
-                  </InteractiveButton>
-                </Link>
-                <Link to="/portfolio">
-                  <InteractiveButton size="lg" variant="outline">
-                    View Portfolio
-                  </InteractiveButton>
-                </Link>
+                <InteractiveButton size="lg" variant="primary" to="/services">
+                  View All Services
+                </InteractiveButton>
+                <InteractiveButton size="lg" variant="outline" to="/contact">
+                  Get Project Estimate
+                </InteractiveButton>
+                <InteractiveButton size="lg" variant="outline" to="/portfolio">
+                  View Portfolio
+                </InteractiveButton>
               </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-dark-base">
+      {/* Testimonials Section - Commented out for startup without testimonials */}
+      {/* <section className="py-20 bg-dark-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="up">
             <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-white mb-12 leading-tight">
@@ -371,6 +448,23 @@ export const Home = () => {
 
           <div className="px-8 md:px-16">
             <TestimonialCarousel testimonials={testimonials} autoPlay={true} autoPlayInterval={5000} />
+          </div>
+        </div>
+      </section> */}
+
+      {/* Technology Partners Section */}
+      <section className="py-20 bg-dark-base">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal direction="up">
+            <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-white mb-12 leading-tight">
+              <KineticText intensity={0.2} enableCursor={true}>
+                Technology Partners
+              </KineticText>
+            </div>
+          </ScrollReveal>
+
+          <div className="px-4 md:px-8">
+            <PartnerCarousel partners={technologyPartners} autoPlay={true} speed={50} />
           </div>
         </div>
       </section>
@@ -388,17 +482,10 @@ export const Home = () => {
             <p className="text-xl text-gray-200 mb-8">
               Let's discuss how we can align our expertise with your organization's structure
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <InteractiveButton size="lg" variant="secondary">
-                  Schedule Free Consultation
-                </InteractiveButton>
-              </Link>
-              <Link to="/contact">
-                <InteractiveButton size="lg" variant="outline">
-                  Get in Touch
-                </InteractiveButton>
-              </Link>
+            <div className="flex justify-center">
+              <InteractiveButton size="lg" variant="secondary" to="/contact">
+                Schedule Free Consultation
+              </InteractiveButton>
             </div>
           </ScrollSection>
         </div>

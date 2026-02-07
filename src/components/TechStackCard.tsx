@@ -34,7 +34,7 @@ export const TechStackCard = ({
           </div>
         )}
         <h3 className="font-semibold text-white mb-1 text-sm">{name}</h3>
-        <span className="text-xs text-gray-400">{category}</span>
+        <span className="text-xs text-gray-300">{category}</span>
       </div>
     </motion.div>
   );

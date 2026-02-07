@@ -101,7 +101,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
                   <p className="text-lg text-gray-300 mb-2">
                     We encountered an unexpected error while processing your request.
                   </p>
-                  <p className="text-base text-gray-400">
+                  <p className="text-base text-gray-300">
                     Our team has been notified and is working to resolve this issue.
                   </p>
                 </motion.div>
@@ -118,7 +118,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
                       {this.state.error.toString()}
                     </p>
                     {this.state.errorInfo && (
-                      <pre className="text-xs text-gray-400 font-mono whitespace-pre-wrap">
+                      <pre className="text-xs text-gray-300 font-mono whitespace-pre-wrap">
                         {this.state.errorInfo.componentStack}
                       </pre>
                     )}
@@ -139,11 +139,9 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
                   >
                     Try Again
                   </InteractiveButton>
-                  <Link to="/">
-                    <InteractiveButton variant="outline" size="lg">
-                      Go Home
-                    </InteractiveButton>
-                  </Link>
+                  <InteractiveButton variant="outline" size="lg" to="/">
+                    Go Home
+                  </InteractiveButton>
                 </motion.div>
 
                 {/* Support Information */}
@@ -153,7 +151,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
                   transition={{ duration: 0.5, delay: 0.6 }}
                   className="mt-8 pt-8 border-t border-dark-border text-center"
                 >
-                  <p className="text-sm text-gray-400 mb-2">
+                  <p className="text-sm text-gray-300 mb-2">
                     Need immediate assistance?
                   </p>
                   <Link

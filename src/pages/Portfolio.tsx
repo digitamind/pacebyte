@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CaseStudyCard } from '../components/CaseStudyCard';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { InteractiveButton } from '../components/InteractiveButton';
-import { Link } from 'react-router-dom';
+import { PageMeta } from '../components/PageMeta';
 
 const caseStudies = [
   {
@@ -115,6 +115,11 @@ export const Portfolio = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <PageMeta
+        title="Our Portfolio"
+        description="Explore Pacebyte's portfolio of successful projects including enterprise cloud migrations, fintech payment platforms, AI-powered analytics dashboards, digital transformations, and more."
+        path="/portfolio"
+      />
       {/* Hero Section */}
       <section className="py-20 bg-dark-base relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
@@ -194,7 +199,7 @@ export const Portfolio = () => {
               >
                 <div className="text-6xl mb-4">🔍</div>
                 <p className="text-gray-300 text-lg font-medium mb-2">No case studies found</p>
-                <p className="text-gray-400 text-sm">Try selecting a different filter</p>
+                <p className="text-gray-300 text-sm">Try selecting a different filter</p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -209,11 +214,9 @@ export const Portfolio = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
               Ready to Start Your Project?
             </h2>
-            <Link to="/contact">
-              <InteractiveButton size="lg" variant="secondary">
-                Get in Touch
-              </InteractiveButton>
-            </Link>
+            <InteractiveButton size="lg" variant="secondary" to="/contact">
+              Get in Touch
+            </InteractiveButton>
           </ScrollReveal>
         </div>
       </section>

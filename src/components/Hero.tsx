@@ -1,5 +1,4 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { useCallback, useRef } from 'react';
 import { InteractiveButton } from './InteractiveButton';
 import { fadeInUp, staggerContainer } from '../utils/animations';
@@ -64,11 +63,11 @@ export const Hero = ({
             </motion.p>
           )}
 
-          <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-[1.1] tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-[1.1] tracking-tight">
             <KineticText intensity={0.3} enableCursor={true}>
               {title}
             </KineticText>
-          </div>
+          </h1>
 
           <motion.p
             variants={{
@@ -86,21 +85,12 @@ export const Hero = ({
             transition={{ delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Link to={ctaLink}>
-              <InteractiveButton size="lg" variant="primary">
-                {ctaText}
-              </InteractiveButton>
-            </Link>
-            <Link to={ctaLink}>
-              <InteractiveButton size="lg" variant="outline">
-                Schedule Free Consultation
-              </InteractiveButton>
-            </Link>
-            <Link to="/services">
-              <InteractiveButton size="lg" variant="outline">
-                Our Services
-              </InteractiveButton>
-            </Link>
+            <InteractiveButton size="lg" variant="primary" to={ctaLink}>
+              {ctaText}
+            </InteractiveButton>
+            <InteractiveButton size="lg" variant="outline" to="/services">
+              Our Services
+            </InteractiveButton>
           </motion.div>
         </motion.div>
       </motion.div>

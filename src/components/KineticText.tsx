@@ -82,7 +82,6 @@ export const KineticText = ({
         rotateX: enableCursor ? rotateX : 0,
         rotateY: enableCursor ? rotateY : 0,
         transformStyle: 'preserve-3d',
-        willChange: 'transform',
       }}
     >
       {children}

@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation, useNavigationType } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { useEffect, lazy, Suspense, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
 import { PageTransition, TransitionDirection } from './components/PageTransition';
@@ -82,6 +83,10 @@ function AppContent() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <Helmet>
+        <html lang="en" />
+        <meta name="theme-color" content="#0a0a0f" />
+      </Helmet>
       <CircuitGrid />
       <ScrollProgress />
       <Navigation />

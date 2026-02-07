@@ -4,6 +4,7 @@ import { TechStackCard } from '../components/TechStackCard';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 import { ScrollSection } from '../components/ScrollSection';
 import { KineticText } from '../components/KineticText';
+import { PageMeta } from '../components/PageMeta';
 
 const values = [
   {
@@ -109,6 +110,11 @@ const techStackCategories = [
 export const About = () => {
   return (
     <div className="min-h-screen pt-20">
+      <PageMeta
+        title="About Pacebyte"
+        description="Learn about Pacebyte's mission, values, and technology stack. We push the boundaries of what's possible in technology, delivering cutting-edge solutions that keep businesses ahead of the competition."
+        path="/about"
+      />
       {/* Hero Section */}
       <section className="py-20 bg-dark-base relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
@@ -221,7 +227,7 @@ export const About = () => {
               >
                 <div className="text-5xl mb-4">{value.icon}</div>
                 <h3 className="text-xl font-extrabold text-white mb-3">{value.title}</h3>
-                <p className="text-base text-gray-400 leading-relaxed">{value.description}</p>
+                <p className="text-base text-gray-300 leading-relaxed">{value.description}</p>
               </motion.div>
             ))}
           </motion.div>

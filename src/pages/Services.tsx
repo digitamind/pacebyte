@@ -5,9 +5,9 @@ import { ServiceCard } from '../components/ServiceCard';
 import { ServiceCategory } from '../components/ServiceCategory';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { InteractiveButton } from '../components/InteractiveButton';
-import { Link } from 'react-router-dom';
 import { staggerContainer } from '../utils/animations';
 import { GradientMesh } from '../components/GradientMesh';
+import { PageMeta } from '../components/PageMeta';
 
 interface Service {
   title: string;
@@ -805,6 +805,11 @@ export const Services = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <PageMeta
+        title="Our Services"
+        description="Comprehensive IT consultancy services including Enterprise Application Development, Cloud Infrastructure & DevOps, Blockchain & Web3 Development, AI & Machine Learning, Fintech & Payment Solutions, Security & Compliance, and more."
+        path="/services"
+      />
       {/* Hero Section */}
       <section className="py-20 bg-dark-base relative overflow-hidden">
         <GradientMesh intensity="normal" />
@@ -880,16 +885,12 @@ export const Services = () => {
                 We adapt our agile methodologies to align with your existing processes and enhance workflows where beneficial.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/contact">
-                  <InteractiveButton size="lg" variant="primary">
-                    Get in Touch
-                  </InteractiveButton>
-                </Link>
-                <Link to="/contact">
-                  <InteractiveButton size="lg" variant="outline">
-                    Schedule Consultation
-                  </InteractiveButton>
-                </Link>
+                <InteractiveButton size="lg" variant="primary" to="/contact">
+                  Get in Touch
+                </InteractiveButton>
+                <InteractiveButton size="lg" variant="outline" to="/contact">
+                  Schedule Consultation
+                </InteractiveButton>
               </div>
             </div>
           </ScrollReveal>
@@ -908,16 +909,12 @@ export const Services = () => {
               Let's discuss how we can align our expertise with your organization's structure
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <InteractiveButton size="lg" variant="secondary">
-                  Start Your Project
-                </InteractiveButton>
-              </Link>
-              <Link to="/faq">
-                <InteractiveButton size="lg" variant="outline">
-                  View FAQ
-                </InteractiveButton>
-              </Link>
+              <InteractiveButton size="lg" variant="secondary" to="/contact">
+                Start Your Project
+              </InteractiveButton>
+              <InteractiveButton size="lg" variant="outline" to="/faq">
+                View FAQ
+              </InteractiveButton>
             </div>
           </ScrollReveal>
         </div>
