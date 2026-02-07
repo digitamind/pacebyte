@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useMousePosition } from '../hooks/useMousePosition';
 
 interface KineticTextProps {
@@ -7,6 +7,11 @@ interface KineticTextProps {
   className?: string;
   intensity?: number;
   enableCursor?: boolean;
+}
+
+interface CachedRect {
+  centerX: number;
+  centerY: number;
 }
 
 /**
@@ -20,17 +25,40 @@ export const KineticText = ({
   enableCursor = true,
 }: KineticTextProps) => {
   const ref = useRef<HTMLSpanElement>(null);
+  const cachedRectRef = useRef<CachedRect | null>(null);
   const { x: mouseX, y: mouseY } = useMousePosition();
 
   const mouseXSpring = useSpring(useMotionValue(0), { stiffness: 160, damping: 18 });
   const mouseYSpring = useSpring(useMotionValue(0), { stiffness: 160, damping: 18 });
 
-  useEffect(() => {
-    if (!ref.current || !enableCursor) return;
-
+  // Recalculate cached rect on resize/scroll instead of every mouse move
+  const updateCachedRect = useCallback(() => {
+    if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
+    cachedRectRef.current = {
+      centerX: rect.left + rect.width / 2,
+      centerY: rect.top + rect.height / 2,
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!enableCursor) return;
+
+    updateCachedRect();
+
+    window.addEventListener('resize', updateCachedRect);
+    window.addEventListener('scroll', updateCachedRect, { passive: true });
+
+    return () => {
+      window.removeEventListener('resize', updateCachedRect);
+      window.removeEventListener('scroll', updateCachedRect);
+    };
+  }, [enableCursor, updateCachedRect]);
+
+  useEffect(() => {
+    if (!enableCursor || !cachedRectRef.current) return;
+
+    const { centerX, centerY } = cachedRectRef.current;
 
     const deltaX = (mouseX - centerX) * intensity * 0.01;
     const deltaY = (mouseY - centerY) * intensity * 0.01;

@@ -25,7 +25,7 @@ const getRouteOrder = (path: string): number => {
 export const PageTransition = ({ children, direction = 'initial' }: PageTransitionProps) => {
   // Slide distance and blur amount
   const slideDistance = 40;
-  const blurAmount = 10;
+  const blurAmount = 4;
 
   // Define variants based on direction
   const variants = {
