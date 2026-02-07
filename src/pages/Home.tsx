@@ -64,10 +64,10 @@ const featuredServices = [
 ];
 
 const stats = [
-  { label: 'Blockchain & Web3', icon: '⛓️' },
-  { label: 'Cloud & DevOps', icon: '☁️' },
-  { label: 'AI & ML', icon: '🤖' },
-  { label: '24/7 Support', icon: '🔄' },
+  { label: 'Blockchain & Web3', icon: '⛓️', link: '/services#blockchain-web3-development' },
+  { label: 'Cloud & DevOps', icon: '☁️', link: '/services#cloud-infrastructure-devops' },
+  { label: 'AI & ML', icon: '🤖', link: '/services#ai-machine-learning' },
+  { label: '24/7 Support', icon: '🔄', link: '/services' },
 ];
 
 const valueProps = [
@@ -135,9 +135,10 @@ const testimonials = [
 type StatItem = {
   label: string;
   icon: string;
+  link?: string;
 };
 
-// Stats Section
+// Stats Section - Horizontal Strip with Dividers
 const StatsSection = ({ stats }: { stats: StatItem[] }) => {
   return (
     <section className="py-20 bg-dark-surface relative overflow-hidden">
@@ -148,22 +149,42 @@ const StatsSection = ({ stats }: { stats: StatItem[] }) => {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8"
+          className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0"
         >
           {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              variants={fadeInUp}
-              whileHover={{ 
-                scale: 1.05,
-                transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
-              }}
-              className="text-center"
-            >
-              <div className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-200 hover:text-white transition-colors duration-300">
-                {stat.label}
-              </div>
-            </motion.div>
+            <div key={index} className="flex items-center">
+              {stat.link ? (
+                <Link
+                  to={stat.link}
+                  className="no-underline"
+                >
+                  <motion.div
+                    variants={fadeInUp}
+                    whileHover={{
+                      scale: 1.05,
+                      transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
+                    }}
+                    className="text-base md:text-lg lg:text-xl font-semibold text-gray-200 hover:text-white transition-colors duration-300 cursor-pointer"
+                  >
+                    {stat.label}
+                  </motion.div>
+                </Link>
+              ) : (
+                <motion.div
+                  variants={fadeInUp}
+                  whileHover={{
+                    scale: 1.05,
+                    transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
+                  }}
+                  className="text-base md:text-lg lg:text-xl font-semibold text-gray-200 hover:text-white transition-colors duration-300"
+                >
+                  {stat.label}
+                </motion.div>
+              )}
+              {index < stats.length - 1 && (
+                <span className="hidden md:inline mx-4 lg:mx-6 text-gray-600 text-xl">|</span>
+              )}
+            </div>
           ))}
         </motion.div>
       </div>
@@ -201,8 +222,8 @@ export const Home = () => {
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                whileHover={{ 
-                  y: -8, 
+                whileHover={{
+                  y: -8,
                   scale: 1.02,
                   transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
                 }}
