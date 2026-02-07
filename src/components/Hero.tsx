@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { InteractiveButton } from './InteractiveButton';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 import { GradientMesh } from './GradientMesh';
@@ -30,6 +30,13 @@ export const Hero = ({
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
   const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
+
+  const handleScrollDown = useCallback(() => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth',
+    });
+  }, []);
 
   return (
     <section
@@ -99,10 +106,15 @@ export const Hero = ({
       </motion.div>
 
       <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.5 }}
+        onClick={handleScrollDown}
+        role="button"
+        aria-label="Scroll down to content"
+        tabIndex={0}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleScrollDown(); }}
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}

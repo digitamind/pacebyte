@@ -92,6 +92,43 @@
   @apply bg-accent-cyan;
 }
 
+/* GradientMesh orb animations — CSS-only for compositor-thread performance */
+@keyframes orb-cyan {
+  0%, 100% { transform: translateZ(0) translate(0, 0); }
+  50% { transform: translateZ(0) translate(100px, 50px); }
+}
+
+@keyframes orb-purple {
+  0%, 100% { transform: translateZ(0) translate(0, 0); }
+  50% { transform: translateZ(0) translate(-100px, -50px); }
+}
+
+@keyframes orb-green {
+  0%, 100% { transform: translateZ(0) translate(0, 0); }
+  50% { transform: translateZ(0) translate(50px, -100px); }
+}
+
+@keyframes gradient-mesh-bg {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+.animate-orb-cyan {
+  animation: orb-cyan 15s ease-in-out infinite;
+}
+
+.animate-orb-purple {
+  animation: orb-purple 18s ease-in-out infinite;
+}
+
+.animate-orb-green {
+  animation: orb-green 22s ease-in-out infinite;
+}
+
+.animate-gradient-mesh-bg {
+  animation: gradient-mesh-bg 20s linear infinite alternate;
+}
+
 /* Performance-optimized fade-in animation for tech stack */
 @keyframes fadeInUp {
   from {
