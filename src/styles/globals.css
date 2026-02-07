@@ -17,9 +17,12 @@
 
 /* Gradient animation for logo */
 @keyframes gradient-shift {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
@@ -94,23 +97,49 @@
 
 /* GradientMesh orb animations — CSS-only for compositor-thread performance */
 @keyframes orb-cyan {
-  0%, 100% { transform: translateZ(0) translate(0, 0); }
-  50% { transform: translateZ(0) translate(100px, 50px); }
+
+  0%,
+  100% {
+    transform: translateZ(0) translate(0, 0);
+  }
+
+  50% {
+    transform: translateZ(0) translate(100px, 50px);
+  }
 }
 
 @keyframes orb-purple {
-  0%, 100% { transform: translateZ(0) translate(0, 0); }
-  50% { transform: translateZ(0) translate(-100px, -50px); }
+
+  0%,
+  100% {
+    transform: translateZ(0) translate(0, 0);
+  }
+
+  50% {
+    transform: translateZ(0) translate(-100px, -50px);
+  }
 }
 
 @keyframes orb-green {
-  0%, 100% { transform: translateZ(0) translate(0, 0); }
-  50% { transform: translateZ(0) translate(50px, -100px); }
+
+  0%,
+  100% {
+    transform: translateZ(0) translate(0, 0);
+  }
+
+  50% {
+    transform: translateZ(0) translate(50px, -100px);
+  }
 }
 
 @keyframes gradient-mesh-bg {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 100% 100%; }
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 100% 100%;
+  }
 }
 
 .animate-orb-cyan {
@@ -129,12 +158,92 @@
   animation: gradient-mesh-bg 20s linear infinite alternate;
 }
 
+/* Circuit grid — tech network background */
+.circuit-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+@keyframes node-glow {
+
+  0%,
+  100% {
+    opacity: 0.08;
+    transform: scale(1) translateZ(0);
+    box-shadow: 0 0 2px 0 rgba(0, 212, 255, 0.1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.6) translateZ(0);
+    box-shadow: 0 0 12px 4px rgba(0, 212, 255, 0.35);
+  }
+}
+
+.node-glow {
+  animation: node-glow 10s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+@keyframes data-pulse-h {
+  0% {
+    transform: translateX(-60px) translateZ(0);
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(100vw) translateZ(0);
+    opacity: 0;
+  }
+}
+
+@keyframes data-pulse-v {
+  0% {
+    transform: translateY(-60px) translateZ(0);
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh) translateZ(0);
+    opacity: 0;
+  }
+}
+
+.data-pulse-h {
+  animation: data-pulse-h 18s linear infinite;
+  will-change: transform, opacity;
+}
+
+.data-pulse-v {
+  animation: data-pulse-v 22s linear infinite;
+  will-change: transform, opacity;
+}
+
 /* Performance-optimized fade-in animation for tech stack */
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -148,6 +257,7 @@
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -156,7 +266,7 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  
+
   .tech-stack-fade-in {
     animation: none !important;
     opacity: 1 !important;

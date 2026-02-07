@@ -7,6 +7,7 @@ import { PageTransition, TransitionDirection } from './components/PageTransition
 import { ScrollProgress } from './components/ScrollProgress';
 import { SkeletonLoader } from './components/SkeletonLoader';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import { CircuitGrid } from './components/CircuitGrid';
 import './styles/globals.css';
 
 // Lazy load pages for code splitting
@@ -81,6 +82,7 @@ function AppContent() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <CircuitGrid />
       <ScrollProgress />
       <Navigation />
       <main className="flex-grow">
