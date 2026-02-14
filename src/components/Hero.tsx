@@ -46,7 +46,7 @@ export const Hero = ({
       
       <motion.div
         style={{ opacity, scale, y }}
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32"
+        className="relative z-10 container-content py-24 md:py-32"
       >
         <motion.div
           variants={staggerContainer}

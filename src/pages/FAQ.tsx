@@ -109,7 +109,7 @@ export const FAQ = () => {
       {/* Hero Section */}
       <section className="py-20 bg-dark-base relative overflow-hidden">
         <GradientMesh intensity="normal" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 container-content">
           <ScrollReveal direction="up">
             <div className="text-center mb-8">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
@@ -125,7 +125,7 @@ export const FAQ = () => {
 
       {/* FAQ Categories */}
       <section className="py-20 bg-dark-surface">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           <motion.div
             variants={staggerContainer}
             initial="initial"
@@ -150,7 +150,7 @@ export const FAQ = () => {
 
       {/* Still Have Questions CTA */}
       <section className="py-20 bg-dark-base">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

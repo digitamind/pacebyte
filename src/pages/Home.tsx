@@ -154,7 +154,7 @@ const valueProps = [
   },
   {
     title: 'Cutting-Edge Technology',
-    description: 'Always at the forefront of the digital revolution with latest technologies including Blockchain & Web3.',
+    description: 'Always at the forefront of the digital revolution with latest technologies including AI, Blockchain & Web3.',
     icon: '🚀',
   },
 ];
@@ -213,7 +213,7 @@ const StatsSection = ({ stats }: { stats: StatItem[] }) => {
   return (
     <section className="py-20 bg-dark-surface relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 container-content">
         <motion.div
           variants={staggerContainer}
           initial="initial"
@@ -285,7 +285,7 @@ export const Home = () => {
 
       {/* Value Propositions */}
       <section className="py-20 bg-dark-base">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-content">
           <ScrollReveal direction="up">
             <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-white mb-12 leading-tight">
               <KineticText intensity={0.2} enableCursor={true}>
@@ -324,7 +324,7 @@ export const Home = () => {
       {/* How We Work Process Section */}
       <section className="py-20 bg-dark-surface relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh opacity-20" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 container-content">
           <ScrollReveal direction="up">
             <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-white mb-4 leading-tight">
               <KineticText intensity={0.2} enableCursor={true}>
@@ -341,7 +341,7 @@ export const Home = () => {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, margin: '-100px' }}
-            className="grid grid-cols-1 md:grid-cols-5 gap-6 max-w-6xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-5 gap-6"
           >
             {[
               {
@@ -394,7 +394,7 @@ export const Home = () => {
       {/* Featured Services */}
       <section className="py-20 bg-dark-surface relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh opacity-20" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 container-content">
           <ScrollReveal direction="up">
             <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-white mb-12 leading-tight">
               <KineticText intensity={0.2} enableCursor={true}>
@@ -437,7 +437,7 @@ export const Home = () => {
 
       {/* Testimonials Section - Commented out for startup without testimonials */}
       {/* <section className="py-20 bg-dark-base">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-content">
           <ScrollReveal direction="up">
             <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-white mb-12 leading-tight">
               <KineticText intensity={0.2} enableCursor={true}>
@@ -454,7 +454,7 @@ export const Home = () => {
 
       {/* Technology Partners Section */}
       <section className="py-20 bg-dark-base">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-content">
           <ScrollReveal direction="up">
             <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-white mb-12 leading-tight">
               <KineticText intensity={0.2} enableCursor={true}>
@@ -472,11 +472,11 @@ export const Home = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-accent-cyan/20 via-accent-purple/20 to-accent-green/20 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh-strong opacity-40" />
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 text-center">
           <ScrollSection parallax={true} parallaxSpeed={0.2}>
             <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-tight">
               <KineticText intensity={0.2} enableCursor={true}>
-                Ready to Accelerate Your Digital Future?
+                Ready to grow your business with the right technology?
               </KineticText>
             </div>
             <p className="text-xl text-gray-200 mb-8">

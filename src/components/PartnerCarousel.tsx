@@ -190,7 +190,7 @@ export const PartnerCarousel = ({
               <motion.div
                 key={`partner-${index}`}
                 whileHover={{ scale: 1.05, y: -4 }}
-                className="bg-dark-elevated rounded-xl p-6 border border-dark-border hover:border-accent-cyan/50 transition-all text-center flex flex-col items-center justify-center h-full"
+                className="group bg-dark-elevated rounded-xl p-6 border border-dark-border hover:border-accent-cyan/50 transition-all text-center flex flex-col items-center justify-center h-full"
               >
                 {partner.url ? (
                   <a
@@ -199,12 +199,14 @@ export const PartnerCarousel = ({
                     rel="noopener noreferrer"
                     className="no-underline w-full h-full flex flex-col items-center justify-center"
                   >
-                    <img 
-                      src={partner.logo} 
-                      alt={`${partner.name} logo`}
-                      className="w-16 h-16 md:w-20 md:h-20 object-contain mb-3 brightness-0 invert hover:brightness-100 hover:invert-0 transition-all duration-300"
-                      loading="lazy"
-                    />
+                    <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center rounded-xl mb-3 bg-white/5 group-hover:bg-white transition-colors duration-300 p-2">
+                      <img 
+                        src={partner.logo} 
+                        alt={`${partner.name} logo`}
+                        className="w-full h-full object-contain brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300"
+                        loading="lazy"
+                      />
+                    </div>
                     <h3 className="text-sm md:text-base font-semibold text-white">{partner.name}</h3>
                     {partner.category && (
                       <span className="text-xs text-gray-400 mt-1">{partner.category}</span>
@@ -212,12 +214,14 @@ export const PartnerCarousel = ({
                   </a>
                 ) : (
                   <>
-                    <img 
-                      src={partner.logo} 
-                      alt={`${partner.name} logo`}
-                      className="w-16 h-16 md:w-20 md:h-20 object-contain mb-3 brightness-0 invert hover:brightness-100 hover:invert-0 transition-all duration-300"
-                      loading="lazy"
-                    />
+                    <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center rounded-xl mb-3 bg-white/5 group-hover:bg-white transition-colors duration-300 p-2">
+                      <img 
+                        src={partner.logo} 
+                        alt={`${partner.name} logo`}
+                        className="w-full h-full object-contain brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300"
+                        loading="lazy"
+                      />
+                    </div>
                     <h3 className="text-sm md:text-base font-semibold text-white">{partner.name}</h3>
                     {partner.category && (
                       <span className="text-xs text-gray-400 mt-1">{partner.category}</span>

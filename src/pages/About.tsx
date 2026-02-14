@@ -118,7 +118,7 @@ export const About = () => {
       {/* Hero Section */}
       <section className="py-20 bg-dark-base relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 container-content">
           <ScrollReveal direction="up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-8 text-center leading-tight">
               About Pacebyte
@@ -130,7 +130,7 @@ export const About = () => {
       {/* Company Story */}
       <section className="py-20 bg-dark-surface relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh opacity-20" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 container-content">
           <ScrollSection parallax={true} parallaxSpeed={0.3}>
             <div className="text-center mb-12">
               <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 leading-tight">
@@ -204,7 +204,7 @@ export const About = () => {
       {/* Values */}
       <section className="py-20 bg-dark-surface relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh opacity-20" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 container-content">
           <ScrollReveal direction="up">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-12 text-center leading-tight">
               Our Values
@@ -236,7 +236,7 @@ export const About = () => {
 
       {/* Tech Stack Section */}
       <section className="py-20 bg-dark-base">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-content">
           <ScrollReveal direction="up">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-12 text-center leading-tight">
               Our Technology Stack
@@ -276,14 +276,14 @@ export const About = () => {
       {/* Why Choose */}
       <section className="py-20 bg-gradient-to-r from-accent-cyan/20 via-accent-purple/20 to-accent-green/20 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh-strong opacity-40" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 container-content">
           <ScrollReveal direction="up">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-12 text-center leading-tight">
               Why Choose Pacebyte?
             </h2>
           </ScrollReveal>
 
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
             <motion.div
               variants={staggerContainer}
               initial="initial"

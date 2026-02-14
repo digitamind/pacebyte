@@ -813,7 +813,7 @@ export const Services = () => {
       {/* Hero Section */}
       <section className="py-20 bg-dark-base relative overflow-hidden">
         <GradientMesh intensity="normal" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 container-content">
           <ScrollReveal direction="up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 text-center leading-tight">
               Our Services
@@ -827,7 +827,7 @@ export const Services = () => {
 
       {/* Services by Category */}
       <section className="py-20 bg-dark-surface">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-content">
           <motion.div
             variants={staggerContainer}
             initial="initial"
@@ -875,7 +875,7 @@ export const Services = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-dark-base">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-content">
           <ScrollReveal direction="up">
             <div className="text-center bg-dark-elevated rounded-2xl p-10 border border-dark-border mb-12">
               <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-4">
@@ -900,7 +900,7 @@ export const Services = () => {
       {/* Final CTA Section */}
       <section className="py-20 bg-gradient-to-r from-accent-cyan/20 via-accent-purple/20 to-accent-green/20 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh-strong opacity-40" />
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 text-center">
           <ScrollReveal direction="up">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
               Ready to Transform Your Business?

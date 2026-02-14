@@ -27,6 +27,20 @@
   }
 }
 
+@layer components {
+  /* Responsive container: consistent max-width and padding up to 2xl for large screens */
+  .container-content {
+    @apply max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16;
+  }
+
+  /* Glass effect for fixed header – no border to avoid disfiguring the nav */
+  .glass-nav {
+    background: rgba(26, 26, 36, 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

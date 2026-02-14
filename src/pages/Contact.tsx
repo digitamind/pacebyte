@@ -71,7 +71,7 @@ export const Contact = () => {
       {/* Hero Section */}
       <section className="py-20 bg-dark-base relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 container-content">
           <ScrollReveal direction="up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-8 text-center leading-tight">
               Get in Touch
@@ -82,7 +82,7 @@ export const Contact = () => {
 
       {/* Contact Section */}
       <section className="py-20 bg-dark-surface">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-content">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <motion.div

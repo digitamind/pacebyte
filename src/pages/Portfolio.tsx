@@ -123,7 +123,7 @@ export const Portfolio = () => {
       {/* Hero Section */}
       <section className="py-20 bg-dark-base relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 container-content">
           <ScrollReveal direction="up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-8 text-center leading-tight">
               Our Portfolio
@@ -133,8 +133,8 @@ export const Portfolio = () => {
       </section>
 
       {/* Filter Section */}
-      <section className="py-6 glass border-b border-dark-border sticky top-20 z-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-6 glass-nav sticky top-20 z-20">
+        <div className="container-content">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -165,7 +165,7 @@ export const Portfolio = () => {
 
       {/* Case Studies Grid */}
       <section className="py-20 bg-dark-surface">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-content">
           <AnimatePresence mode="wait">
             {filteredCaseStudies.length > 0 ? (
               <motion.div
@@ -209,7 +209,7 @@ export const Portfolio = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-accent-cyan/20 via-accent-purple/20 to-accent-green/20 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh-strong opacity-40" />
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 text-center">
           <ScrollReveal direction="up">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
               Ready to Start Your Project?

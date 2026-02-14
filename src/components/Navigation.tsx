@@ -43,11 +43,11 @@ export const Navigation = () => {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-30 transition-all duration-500 ${
           isScrolled
-            ? 'glass shadow-lg border-b border-dark-border'
+            ? 'glass-nav shadow-lg'
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-content">
           <div className="flex items-center justify-between h-20">
             <Link to="/" className="flex items-center space-x-2 group">
               <motion.span
