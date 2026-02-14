@@ -10,24 +10,30 @@ interface CaseStudyCardProps {
   title: string;
   description: string;
   year: string;
-  role: string;
+  industry: string;
+  clientType?: string;
+  summary?: string;
   services: string[];
   technologies?: string[];
   metrics?: Metric[];
   image?: ReactNode;
   index?: number;
+  totalCount?: number;
 }
 
 export const CaseStudyCard = ({
   title,
   description,
   year,
-  role,
+  industry,
+  clientType,
+  summary,
   services,
   technologies,
   metrics,
   image,
   index = 0,
+  totalCount,
 }: CaseStudyCardProps) => {
   return (
     <motion.div
@@ -47,29 +53,41 @@ export const CaseStudyCard = ({
       }}
       className="bg-dark-elevated rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow group border border-dark-border"
     >
-      {image && (
-        <div className="relative h-64 overflow-hidden bg-gradient-to-br from-accent-cyan/20 to-accent-purple/20">
+      <div className="relative h-20 overflow-hidden bg-gradient-to-br from-accent-cyan/20 to-accent-purple/20 flex items-center justify-center">
+        {image ? (
           <motion.div
             whileHover={{ scale: 1.08 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full h-full"
+            className="absolute inset-0 w-full h-full"
           >
             {image}
           </motion.div>
-          <div className="absolute top-3 left-3 bg-accent-cyan text-dark-base px-3 py-1 rounded-full text-xs font-extrabold">
-            {String(index + 1).padStart(2, '0')} / {String(6).padStart(2, '0')}
+        ) : null}
+        <span className="text-sm font-bold text-white/90 uppercase tracking-wider relative z-10">
+          {industry}
+        </span>
+        {typeof totalCount === 'number' && totalCount > 0 && (
+          <div className="absolute top-1.5 right-2 bg-dark-base/80 text-gray-200 px-2 py-0.5 rounded-full text-xs font-medium">
+            {index + 1} / {totalCount}
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       <div className="p-8">
         <div className="flex flex-wrap gap-3 mb-4">
-          <span className="text-sm text-gray-300 font-medium">Year: {year}</span>
-          <span className="text-sm text-gray-300">•</span>
-          <span className="text-sm text-gray-300 font-medium">Role: {role}</span>
+          <span className="text-sm text-gray-300 font-medium">{year}</span>
+          {clientType && (
+            <>
+              <span className="text-sm text-gray-300">•</span>
+              <span className="text-sm text-gray-400 font-medium">{clientType}</span>
+            </>
+          )}
         </div>
 
         <h3 className="text-2xl font-extrabold text-white mb-3 leading-tight">{title}</h3>
+        {summary && (
+          <p className="text-sm text-accent-cyan/90 mb-2 font-medium">{summary}</p>
+        )}
         <p className="text-base text-gray-200 mb-6 leading-relaxed">{description}</p>
 
         {metrics && metrics.length > 0 && (

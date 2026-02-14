@@ -7,48 +7,56 @@ import { PageMeta } from '../components/PageMeta';
 
 const caseStudies = [
   {
-    title: 'Enterprise Cloud Migration for FinanceFlow',
-    description: 'Migrated a legacy financial system to AWS cloud infrastructure, improving scalability and reducing operational costs by 40%. Implemented CI/CD pipelines and automated deployment processes.',
+    title: 'Enterprise Cloud Migration for a Financial Services Client',
+    description: 'Pacebyte migrated a legacy financial system to cloud infrastructure, improving scalability and reducing operational costs by 40%. Pacebyte implemented CI/CD pipelines and automated deployment processes.',
+    summary: 'Scalable cloud infrastructure and DevOps for a financial services client.',
     year: '2024',
-    role: 'Lead Architect',
+    industry: 'Financial Services',
+    clientType: 'Traditional financial institution',
     services: ['Cloud Infrastructure & DevOps', 'Solution Architecture', 'Enterprise Development'],
-    technologies: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'Node.js'],
+    technologies: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'Java Spring Boot'],
     metrics: [
       { value: '40%', label: 'Cost Reduction' },
       { value: '5x', label: 'Faster Deployments' },
     ],
   },
   {
-    title: 'Fintech Payment Platform Development',
-    description: 'Developed a comprehensive payment integration platform with multiple gateway support. Increased transaction processing capacity by 300% and reduced payment failures by 60%.',
+    title: 'Payment Platform for a Fintech Client',
+    description: 'Pacebyte developed a comprehensive payment integration platform with multiple gateway support for a fintech client. Delivered a 300% increase in transaction processing capacity and reduced payment failures by 60%.',
+    summary: 'Multi-gateway payment platform for a fintech company.',
     year: '2024',
-    role: 'Technical Lead',
+    industry: 'Fintech',
+    clientType: 'Fintech company',
     services: ['Payment Integration & Fintech Solutions', 'API Development', 'Security & Compliance'],
-    technologies: ['Java Spring Boot', 'React.js', 'PostgreSQL', 'Redis'],
+    technologies: ['Java Spring Boot', 'React.js', 'SQL Server', 'Redis'],
     metrics: [
       { value: '300%', label: 'Capacity Increase' },
       { value: '60%', label: 'Failure Reduction' },
     ],
   },
   {
-    title: 'AI-Powered Analytics Dashboard',
-    description: 'Built an intelligent analytics platform using machine learning to predict customer behavior and optimize business processes. Improved decision-making speed by 50% and increased revenue by 25%.',
-    year: '2023',
-    role: 'ML Engineer',
+    title: 'AI-Powered Analytics Platform for Enterprise',
+    description: 'Pacebyte built an intelligent analytics platform using machine learning to predict customer behavior and optimize business processes. Improved decision-making speed by 50% and increased revenue by 25%.',
+    summary: 'ML and analytics platform for enterprise decision-making.',
+    year: '2025',
+    industry: 'Technology',
+    clientType: 'Enterprise',
     services: ['Machine Learning & AI Automation', 'Data Analytics & BI', 'Enterprise Development'],
-    technologies: ['Python', 'TensorFlow', 'React.js', 'PostgreSQL', 'Elasticsearch'],
+    technologies: ['Python', 'TensorFlow', 'Elasticsearch', 'Kibana', 'Beats', 'Kafka'],
     metrics: [
       { value: '50%', label: 'Faster Decisions' },
       { value: '25%', label: 'Revenue Increase' },
     ],
   },
   {
-    title: 'Digital Transformation for Retail Chain',
-    description: 'Led digital transformation initiative for a major retail chain, modernizing their e-commerce platform and implementing omnichannel solutions. Increased online sales by 72% and improved customer satisfaction by 45%.',
+    title: 'E-commerce and Omnichannel Modernization for Retail',
+    description: 'Pacebyte led a digital transformation for an enterprise retailer, modernizing their e-commerce platform and implementing omnichannel solutions. Delivered a 72% increase in online sales and 45% improvement in customer satisfaction.',
+    summary: 'Digital transformation and e-commerce for a retail client.',
     year: '2023',
-    role: 'Solution Architect',
+    industry: 'Retail',
+    clientType: 'Enterprise retailer',
     services: ['Digital Transformation Consulting', 'Enterprise Development', 'UI/UX Design'],
-    technologies: ['ASP.NET', 'React.js', 'Azure', 'MongoDB'],
+    technologies: ['Node.js', 'React.js', 'Azure', 'MongoDB', 'MySQL'],
     metrics: [
       { value: '72%', label: 'Sales Increase' },
       { value: '45%', label: 'Satisfaction Boost' },
@@ -56,26 +64,86 @@ const caseStudies = [
   },
   {
     title: 'Healthcare Data Management System',
-    description: 'Developed a secure, HIPAA-compliant healthcare data management system with real-time analytics. Reduced data processing time by 65% and improved patient care coordination.',
+    description: 'Pacebyte developed a secure, HIPAA-compliant healthcare data management system with real-time analytics. Reduced data processing time by 65% and improved patient care coordination.',
+    summary: 'HIPAA-compliant data management and analytics for healthcare.',
     year: '2023',
-    role: 'Full Stack Developer',
+    industry: 'Healthcare',
+    clientType: 'Healthcare provider',
     services: ['Enterprise Development', 'Security & Compliance', 'Data Analytics'],
     technologies: ['Node.js', 'React.js', 'PostgreSQL', 'AWS'],
     metrics: [
-      { value: '65%', label: 'Processing Time Reduction' },
+      { value: '65%', label: 'Faster Processing' },
       { value: '100%', label: 'HIPAA Compliance' },
     ],
   },
   {
-    title: 'Mobile Banking App Redesign',
-    description: 'Redesigned and rebuilt a mobile banking application with enhanced security features and improved user experience. Increased daily active users by 35% and reduced support tickets by 50%.',
+    title: 'Mobile Banking Application Redesign',
+    description: 'Pacebyte redesigned and rebuilt a mobile banking application with enhanced security and improved user experience for a bank. Increased daily active users by 35% and reduced support tickets by 50%.',
+    summary: 'Mobile app redesign and security for a bank.',
     year: '2022',
-    role: 'Mobile Lead',
+    industry: 'Financial Services',
+    clientType: 'Bank',
     services: ['Enterprise Development', 'UI/UX Design', 'Security & Compliance'],
     technologies: ['React Native', 'Node.js', 'MongoDB', 'AWS'],
     metrics: [
       { value: '35%', label: 'User Growth' },
       { value: '50%', label: 'Support Reduction' },
+    ],
+  },
+  {
+    title: 'Capital Markets Investor Platform',
+    description: 'Pacebyte designed and built a secure investor platform for a capital markets client, enabling portfolio visibility, reporting, and compliance workflows. Manual reporting time dropped by 55% and investor onboarding improved by 3x.',
+    summary: 'Investor portal and reporting platform for capital markets.',
+    year: '2024',
+    industry: 'Financial Services',
+    clientType: 'Asset manager',
+    services: ['Enterprise Development', 'Solution Architecture', 'Security & Compliance', 'Data Analytics & BI'],
+    technologies: ['React.js', 'Java Spring Boot', 'PostgreSQL', 'AWS', 'Redis'],
+    metrics: [
+      { value: '55%', label: 'Faster Reporting' },
+      { value: '3x', label: 'Faster Onboarding' },
+    ],
+  },
+  {
+    title: 'Digital Platform for a Cooperative Society',
+    description: 'Pacebyte delivered a member portal and digital platform for a cooperative society, including membership management, events, and governance tools. Member engagement increased by 40% and administrative overhead was reduced by 50%.',
+    summary: 'Member portal and digital operations for a cooperative society.',
+    year: '2023',
+    industry: 'Technology',
+    clientType: 'Cooperative society',
+    services: ['Enterprise Development', 'Digital Transformation Consulting', 'UI/UX Design'],
+    technologies: ['React.js', 'Node.js', 'PostgreSQL', 'Azure'],
+    metrics: [
+      { value: '40%', label: 'Member Engagement Increase' },
+      { value: '50%', label: 'Less Admin Overhead' },
+    ],
+  },
+  {
+    title: 'Registrar Operations and Share Registration Platform',
+    description: 'Pacebyte built an operational platform for a capital market registrar to manage share registration, dividend tracking and claiming, corporate actions (AGMs, EGMs), and shareholder data management. Manual processing time dropped by 45% and efficiency of dividend declaration and compliance workflows improved.',
+    summary: 'Operational platform for share registration, dividends, and corporate actions.',
+    year: '2024',
+    industry: 'Financial Services',
+    clientType: 'Capital market registrar',
+    services: ['Enterprise Development', 'Digital Transformation Consulting', 'Solution Architecture', 'Data Analytics & BI', 'Security & Compliance'],
+    technologies: ['React.js', 'ASP.NET', 'PostgreSQL', 'AWS', 'Redis'],
+    metrics: [
+      { value: '45%', label: 'Faster Processing' },
+      { value: '60%', label: 'Manual Work Reduction' },
+    ],
+  },
+  {
+    title: 'Blockchain-Powered Payment Infrastructure for a Fintech Client',
+    description: 'Pacebyte designed and built a blockchain-based payment infrastructure for a digital payments client, enabling secure, scalable payment flows and settlement for cross-border and digital payments. The platform reduced transaction costs by 35% and increased settlement throughput.',
+    summary: 'Blockchain-based payment infrastructure for a fintech client.',
+    year: '2024',
+    industry: 'Fintech',
+    clientType: 'Digital payments / fintech company',
+    services: ['Payment Integration & Fintech Solutions', 'Enterprise Development', 'Solution Architecture', 'Security & Compliance'],
+    technologies: ['Solidity', 'ASP.NET', 'PostgreSQL', 'AWS', 'Web3'],
+    metrics: [
+      { value: '35%', label: 'Transaction Cost Reduction' },
+      { value: '4x', label: 'Settlement Throughput' },
     ],
   },
 ];
@@ -117,7 +185,7 @@ export const Portfolio = () => {
     <div className="min-h-screen pt-20">
       <PageMeta
         title="Our Portfolio"
-        description="Explore Pacebyte's portfolio of successful projects including enterprise cloud migrations, fintech payment platforms, AI-powered analytics dashboards, digital transformations, and more."
+        description="Explore Pacebyte's portfolio of successful projects including enterprise cloud migrations, fintech and blockchain payment infrastructure, AI-powered analytics, capital market and registrar solutions, digital transformations, and more."
         path="/portfolio"
       />
       {/* Hero Section */}
@@ -125,9 +193,12 @@ export const Portfolio = () => {
         <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
         <div className="relative z-10 container-content">
           <ScrollReveal direction="up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-8 text-center leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 text-center leading-tight">
               Our Portfolio
             </h1>
+            <p className="text-lg md:text-xl text-gray-300 text-center max-w-2xl mx-auto">
+              Proven outcomes across fintech, healthcare, retail, and enterprise. See how we deliver for our clients.
+            </p>
           </ScrollReveal>
         </div>
       </section>
@@ -181,12 +252,15 @@ export const Portfolio = () => {
                     key={`${study.title}-${index}`}
                     title={study.title}
                     description={study.description}
+                    summary={study.summary}
                     year={study.year}
-                    role={study.role}
+                    industry={study.industry}
+                    clientType={study.clientType}
                     services={study.services}
                     technologies={study.technologies}
                     metrics={study.metrics}
                     index={index}
+                    totalCount={filteredCaseStudies.length}
                   />
                 ))}
               </motion.div>
@@ -212,10 +286,10 @@ export const Portfolio = () => {
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 text-center">
           <ScrollReveal direction="up">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
-              Ready to Start Your Project?
+              Discuss a similar project?
             </h2>
             <InteractiveButton size="lg" variant="secondary" to="/contact">
-              Get in Touch
+              Get a proposal
             </InteractiveButton>
           </ScrollReveal>
         </div>
